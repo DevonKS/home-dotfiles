@@ -30,7 +30,8 @@
                       helm
                       helm-ag
                       magit
-                      evil-magit))
+                      evil-magit
+                      winum))
 
 (dolist (p my-packages)
   (unless (package-installed-p p)
@@ -56,6 +57,21 @@
 (require 'evil-leader)
 
 (global-linum-mode t)
+
+; Setting up winum
+(require 'winum)
+(winum-mode)
+(evil-leader/set-key
+  "0" 'winum-select-window-0
+  "1" 'winum-select-window-1
+  "2" 'winum-select-window-2
+  "3" 'winum-select-window-3
+  "4" 'winum-select-window-4
+  "5" 'winum-select-window-5
+  "6" 'winum-select-window-6
+  "7" 'winum-select-window-7
+  "8" 'winum-select-window-8
+  "9" 'winum-select-window-9)
 
 (global-evil-leader-mode)
 (evil-leader/set-leader "<SPC>")
