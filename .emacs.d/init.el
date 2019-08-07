@@ -26,7 +26,6 @@
                       flycheck-clojure
                       flycheck-pos-tip
                       powerline
-                      airline-themes
                       helm
                       helm-ag
                       magit
@@ -52,6 +51,7 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;; Standard Setup ;;;;;;;;;;;;;;;;;;;;;;;;
 (add-to-list 'load-path "~/.emacs.d/lisp")
+(add-to-list 'load-path "~/.emacs.d/lisp/airline-themes")
 (add-to-list 'load-path "~/.emacs.d/evil")
 (require 'evil)
 (require 'evil-leader)
