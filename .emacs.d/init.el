@@ -172,6 +172,8 @@
   "mrnc" 'cider-repl-set-ns
   "mrg" (lambda () (interactive) (cider-switch-to-repl-buffer t))
   "mrr" 'cider-ns-refresh
+  "mrtf" 'clojure-thread-first-all
+  "mrtl" 'clojure-thread-last-all
   "mgf" '(lambda () (interactive) (cider-find-var t))
   "mgb" 'cider-pop-back
   "mf" 'cider-format-buffer
