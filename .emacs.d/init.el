@@ -30,7 +30,9 @@
                       helm-ag
                       magit
                       evil-magit
-                      winum))
+                      winum
+                      go-mode
+                      go-eldoc))
 
 (dolist (p my-packages)
   (unless (package-installed-p p)
@@ -185,6 +187,15 @@
 (require 'magit)
 (require 'evil-magit)
 
+;;;;;;;;;;;;;;;;;;;;;;;; golang ;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'go-eldoc)
+(add-hook 'go-mode-hook 'go-eldoc-setup)
+
+(setq gofmt-command "goimports")
+(add-hook 'before-save-hook 'gofmt-before-save)
+
+
+
 ;TODO
 ;workspaces
 
@@ -196,6 +207,7 @@
  '(custom-safe-themes
    (quote
     ("a94f1a015878c5f00afab321e4fef124b2fc3b823c8ddd89d360d710fc2bddfc" "9b1c580339183a8661a84f5864a6c363260c80136bd20ac9f00d7e1d662e936a" "3eb93cd9a0da0f3e86b5d932ac0e3b5f0f50de7a0b805d4eb1f67782e9eb67a4" default)))
+ '(org-agenda-files (quote ("~/Documents/org-test.org")))
  '(package-selected-packages
    (quote
     (undo-tree cider clojure-mode projectile better-defaults))))

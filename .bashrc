@@ -184,5 +184,6 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/development/go
+export PATH=$PATH:$GOPATH/bin
 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
