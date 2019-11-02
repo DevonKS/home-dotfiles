@@ -1,0 +1,8 @@
+# Fedora is weird and I need to install from sources. Here are the steps:
+1. `sudo dnf group install "Development tools"`
+2. `sudo dnf builddep emacs` 
+3. Download emacs from the official website
+4. cd into the downloaded and extracted emacs dir
+5. `./configure`
+6. `make`
+7. `sudo make install`
