@@ -32,7 +32,10 @@
                       evil-magit
                       winum
                       go-mode
-                      go-eldoc))
+                      go-eldoc
+
+		      slime
+		      ))
 
 (dolist (p my-packages)
   (unless (package-installed-p p)
@@ -182,6 +185,10 @@
   "mo" 'helm-imenu)
 
 (eval-after-load 'cider '(flycheck-clojure-setup))
+
+;;;;;;;;;;;;;;;;;;;;;;;; SBCL Setup ;;;;;;;;;;;;;;;;;;;;;;;;
+(setq inferior-lisp-program "/usr/bin/sbcl")
+(setq slime-contribs '(slime-fancy))
 
 ;;;;;;;;;;;;;;;;;;;;;;;; Version Control ;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'magit)
