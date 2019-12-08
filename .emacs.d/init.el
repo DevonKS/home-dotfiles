@@ -7,33 +7,53 @@
 	     '("gnu" . "https://elpa.gnu.org/packages/") t)
 (package-initialize)
 
-(defvar my-packages '(better-defaults
+(defvar my-packages '(;; Standard Packages
+                      better-defaults
                       projectile
-                      clojure-mode
-                      cider
+                      helm-projectile
                       undo-tree
                       key-chord
                       evil-terminal-cursor-changer
                       use-package
                       company
                       rainbow-delimiters
-                      gruvbox-theme
-                      material-theme
                       avy
                       spaceline
                       exec-path-from-shell
                       flycheck
-                      flycheck-clojure
                       flycheck-pos-tip
                       powerline
                       helm
                       helm-ag
+                      winum
+                      dumb-jump
+                      yasnippet
+                      yasnippet-snippets
+                      
+
+                      ;; Theme
+                      gruvbox-theme
+                      material-theme
+
+                      ;; Version Control
                       magit
                       evil-magit
-                      winum
+
+                      ;; lisp
+                      lispy
+
+                      ;; Clojure
+                      clojure-mode
+                      cider
+                      clj-refactor
+                      flycheck-clj-kondo
+                      helm-cider
+
+                      ;; Golang
                       go-mode
                       go-eldoc
 
+                      ;; Common Lisp
 		      slime
 		      ))
 
@@ -41,28 +61,30 @@
   (unless (package-installed-p p)
     (package-install p)))
 
-(helm-mode 1)
-(define-key helm-find-files-map (kbd "DEL") 'helm-find-files-up-one-level)
-(define-key helm-find-files-map (kbd "<tab>") 'helm-ff-RET)
-(define-key helm-read-file-map (kbd "DEL") 'helm-find-files-up-one-level)
-(define-key helm-read-file-map (kbd "<tab>") 'helm-ff-RET)
-(setq helm-mode-fuzzy-match t)
-(setq helm-completion-in-region-fuzzy-match t)
-
-(require 'better-defaults)
-
-(when (memq window-system '(mac ns x))
-  (exec-path-from-shell-initialize))
 
 ;;;;;;;;;;;;;;;;;;;;;;;; Standard Setup ;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'better-defaults)
 (add-to-list 'load-path "~/.emacs.d/lisp")
 (add-to-list 'load-path "~/.emacs.d/lisp/airline-themes")
 (add-to-list 'load-path "~/.emacs.d/evil")
 (require 'evil)
 (require 'evil-leader)
 
+(desktop-save-mode 1)
 (global-linum-mode t)
+(global-hl-line-mode 1)
+(dumb-jump-mode)
 
+;;;;; jk esc
+(require 'key-chord)
+(key-chord-mode 1)
+(key-chord-define evil-insert-state-map  "jk" 'evil-normal-state)
+
+;;;;; Path
+(when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize))
+
+;;;;; Shortcuts
 ; Setting up winum
 (require 'winum)
 (winum-mode)
@@ -85,15 +107,16 @@
   "o" 'helm-find-files
   "e" 'eval-expression
   "r" 'helm-M-x
-  "j" 'avy-goto-char
+  "jc" 'avy-goto-char
+  "jj" 'avy-goto-word-1
   "g" 'helm-do-ag
   "ls" (lambda () (interactive) (split-window-below) (windmove-down) (window-resize nil -15) (term "/bin/bash"))
   "bs" 'helm-mini
   "bk" (lambda () (interactive) (kill-buffer))
   "kr" 'helm-show-kill-ring
   "fs" 'save-buffer
-  "sv" 'split-window-below
-  "sh" 'split-window-right
+  "sh" 'split-window-below
+  "sv" 'split-window-right
   "wh" 'windmove-left
   "wj" 'windmove-down
   "wk" 'windmove-up
@@ -103,10 +126,8 @@
   "ce" (lambda () (interactive) (find-file "~/.emacs.d/init.el"))
   "cr" (lambda () (interactive) (load-file user-init-file)))
 
-(require 'key-chord)
-(key-chord-mode 1)
-(key-chord-define evil-insert-state-map  "jk" 'evil-normal-state)
 
+;;;;; Set cursor shape for evil modes
 (unless (display-graphic-p)
       (use-package evil-terminal-cursor-changer
         :ensure t
@@ -120,6 +141,7 @@
         (etcc-on)
         ))
 
+;;;;; Terminal Emulation Stuff
 ; -- Doesn't Work -- I'm disabling these keys so I can use the buildin behavior of C-r (fzf search history) when in term mode.
 ;(require 'term)
 ;(evil-define-key 'insert term-raw-map (kbd "C-r") nil)
@@ -130,7 +152,15 @@
 (define-key evil-insert-state-map (kbd "C-r") nil)
 
 
-(global-hl-line-mode 1)
+
+;;;;; Helm
+(helm-mode 1)
+(define-key helm-find-files-map (kbd "DEL") 'helm-find-files-up-one-level)
+(define-key helm-find-files-map (kbd "<tab>") 'helm-ff-RET)
+(define-key helm-read-file-map (kbd "DEL") 'helm-find-files-up-one-level)
+(define-key helm-read-file-map (kbd "<tab>") 'helm-ff-RET)
+(setq helm-mode-fuzzy-match t)
+(setq helm-completion-in-region-fuzzy-match t)
 
 ;;;;; Company Mode
 (global-company-mode)
@@ -168,27 +198,49 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;; Clojure Setup ;;;;;;;;;;;;;;;;;;;;;;;;
 (evil-leader/set-key-for-mode 'clojure-mode
-  "mc" 'cider-load-buffer
   "mj" 'cider-jack-in
+  "mq" 'cider-quit
+  "mf" 'cider-format-buffer
+  "ml" 'cider-load-buffer
+  "mg" (lambda () (interactive) (cider-switch-to-repl-buffer t))
+  "mrnc" 'cider-repl-set-ns
+  "mrr" 'cider-ns-refresh
   "mtc" 'cider-test-run-test
   "mtn" 'cider-test-run-ns-tests
   "mta" 'cider-test-run-project-tests
-  "mq" 'cider-quit
-  "mrnc" 'cider-repl-set-ns
-  "mrg" (lambda () (interactive) (cider-switch-to-repl-buffer t))
-  "mrr" 'cider-ns-refresh
+  "muf" 'cljr-find-usages
+  "mnf" 'dumb-jump-go
+  "mnb" 'dumb-jump-back
+  "mns" 'helm-imenu
+  ;; slurp
+  ;; barf
+  ;; move form up
+  ;; move form down
+  ;; raise
+  ;; inline var
+  ;; rename var
   "mrtf" 'clojure-thread-first-all
-  "mrtl" 'clojure-thread-last-all
-  "mgf" '(lambda () (interactive) (cider-find-var t))
-  "mgb" 'cider-pop-back
-  "mf" 'cider-format-buffer
-  "mo" 'helm-imenu)
+  "mrtl" 'clojure-thread-last-all)
 
-(eval-after-load 'cider '(flycheck-clojure-setup))
+(require 'clj-refactor)
+
+(defun my-clojure-mode-hook ()
+  (clj-refactor-mode 1)
+  (yas-minor-mode 1))
+
+(add-hook 'clojure-mode-hook #'my-clojure-mode-hook)
+(require 'flycheck-clj-kondo)
+
+(helm-cider-mode 1)
+
+(add-hook 'clojure-mode-hook (lambda () (lispy-mode 1)))
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;; SBCL Setup ;;;;;;;;;;;;;;;;;;;;;;;;
 (setq inferior-lisp-program "/usr/bin/sbcl")
 (setq slime-contribs '(slime-fancy))
+
+(add-hook 'lisp-mode-hook (lambda () (lispy-mode 1)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;; Version Control ;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'magit)
