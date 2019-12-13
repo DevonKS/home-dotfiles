@@ -242,6 +242,12 @@
   "mrtl" 'clojure-thread-last-all
   "mrua" 'cljr-unwind-all)
 
+(evil-leader/set-key-for-mode 'cider-repl-mode
+  "mh" 'cider-repl-history)
+
+(evil-leader/set-key-for-mode 'cider-repl-history-mode
+  "mi" 'cider-repl-history-insert-and-quit)
+
 (require 'clj-refactor)
 
 (defun my-clojure-mode-hook ()
