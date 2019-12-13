@@ -203,8 +203,8 @@
   "mf" 'cider-format-buffer
   "ml" 'cider-load-buffer
   "mg" (lambda () (interactive) (cider-switch-to-repl-buffer t))
-  "mrnc" 'cider-repl-set-ns
-  "mrr" 'cider-ns-refresh
+  "mcnc" 'cider-repl-set-ns
+  "mcr" 'cider-ns-refresh
   "mtc" 'cider-test-run-test
   "mtn" 'cider-test-run-ns-tests
   "mta" 'cider-test-run-project-tests
@@ -212,15 +212,35 @@
   "mnf" 'dumb-jump-go
   "mnb" 'dumb-jump-back
   "mns" 'helm-imenu
-  ;; slurp
-  ;; barf
-  ;; move form up
-  ;; move form down
-  ;; raise
-  ;; inline var
-  ;; rename var
+  "mram" 'cljr-add-missing-libspec
+  "mrap" 'cljr-add-project-dependency
+  "mras" 'cljr-add-stubs
+  "mrcv" 'clojure-convert-collection-to-vector
+  "mrcm" 'clojure-convert-collection-to-map
+  "mrcs" 'clojure-convert-collection-to-set
+  "mrcl" 'clojure-convert-collection-to-list
+  "mrcq" 'clojure-convert-collection-to-quoted-list
+  "mrcn" 'cljr-clean-ns
+  "mrcp" 'cljr-cycle-privacy
+  "mrdk" 'cljr-destructure-keys
+  "mrec" 'cljr-extract-constant
+  "mred" 'cljr-extract-def
+  "mref" 'cljr-extract-function
+  "mrel" 'cljr-expand-let
+  "mrfe" 'cljr-create-fn-from-example
+  "mril" 'cljr-introduce-let
+  "mris" 'cljr-inline-symbol
+  "mrmf" 'cljr-move-form
+  "mrml" 'cljr-move-to-let
+  "mrpf" 'cljr-promote-function
+  "mrrf" 'cljr-rename-file-or-dir
+  "mrrl" 'cljr-remove-let
+  "mrrs" 'cljr-rename-symbol
+  "mrsp" 'cljr-sort-project-dependencies
+  "mrsr" 'cljr-stop-referring
   "mrtf" 'clojure-thread-first-all
-  "mrtl" 'clojure-thread-last-all)
+  "mrtl" 'clojure-thread-last-all
+  "mrua" 'cljr-unwind-all)
 
 (require 'clj-refactor)
 
@@ -234,6 +254,9 @@
 (helm-cider-mode 1)
 
 (add-hook 'clojure-mode-hook (lambda () (lispy-mode 1)))
+
+
+(setq cljr-warn-on-eval nil)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;; SBCL Setup ;;;;;;;;;;;;;;;;;;;;;;;;
