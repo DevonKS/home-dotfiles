@@ -14,11 +14,12 @@ module-margin = 4
 
 font-0 = NotoSans-Regular:size=8;-1
 font-1 = MaterialIcons:size=10;0
-font-2 = Termsynu:size=8:antialias=false;-2
-font-3 = FontAwesome:size=10;0
-font-4 = "Font Awesome 5 Free:style=Regular:size=10;0"
-font-5 = "Font Awesome 5 Free:style=Solid:size=10;-2"
-font-6 = "Font Awesome 5 Brands:style=Regular:size=10;0"
+font-2 = FontAwesome:size=10;0
+font-3 = "Font Awesome 5 Free:style=Regular:size=10;0"
+font-4 = "Font Awesome 5 Free:style=Solid:size=10;-2"
+font-5 = "Font Awesome 5 Brands:style=Regular:size=10;0"
+font-6 = unifont:size=6;-3
+font-7 = Termsynu:size=8:antialias=false;0
 
 modules-left = i3
 modules-center = date
@@ -41,12 +42,14 @@ padding-right = 4
 module-margin-left = 0
 module-margin-right = 6
 
-font-0 = NotoSans-Regular:size=8;0
-font-1 = unifont:size=6;-3
-font-2 = FontAwesome:size=8;-2
-font-3 = NotoSans-Regular:size=8;-1
-font-4 = MaterialIcons:size=10;-1
-font-5 = Termsynu:size=8:antialias=false;0
+font-0 = NotoSans-Regular:size=8;-1
+font-1 = MaterialIcons:size=10;0
+font-2 = FontAwesome:size=10;0
+font-3 = "Font Awesome 5 Free:style=Regular:size=10;0"
+font-4 = "Font Awesome 5 Free:style=Solid:size=10;-2"
+font-5 = "Font Awesome 5 Brands:style=Regular:size=10;0"
+font-6 = unifont:size=6;-3
+font-7 = Termsynu:size=8:antialias=false;0
 
 modules-right = cpu memory
 
@@ -73,9 +76,9 @@ bar-capacity-width = 10
 bar-capacity-format = %{+u}%{+o}%fill%%empty%%{-u}%{-o}
 bar-capacity-fill = █
 bar-capacity-fill-foreground = #ddffffff
-bar-capacity-fill-font = 3
+bar-capacity-fill-font = 2
 bar-capacity-empty = █
-bar-capacity-empty-font = 3
+bar-capacity-empty-font = 2
 bar-capacity-empty-foreground = #44ffffff
 
 animation-charging-0 = 
@@ -92,28 +95,28 @@ format = <label> <ramp-coreload>
 label = CPU
 
 ramp-coreload-0 = ▁
-ramp-coreload-0-font = 2
+ramp-coreload-0-font = 7
 ramp-coreload-0-foreground = #aaff77
 ramp-coreload-1 = ▂
-ramp-coreload-1-font = 2
+ramp-coreload-1-font = 7
 ramp-coreload-1-foreground = #aaff77
 ramp-coreload-2 = ▃
-ramp-coreload-2-font = 2
+ramp-coreload-2-font = 7
 ramp-coreload-2-foreground = #aaff77
 ramp-coreload-3 = ▄
-ramp-coreload-3-font = 2
+ramp-coreload-3-font = 7
 ramp-coreload-3-foreground = #aaff77
 ramp-coreload-4 = ▅
-ramp-coreload-4-font = 2
+ramp-coreload-4-font = 7
 ramp-coreload-4-foreground = #fba922
 ramp-coreload-5 = ▆
-ramp-coreload-5-font = 2
+ramp-coreload-5-font = 7
 ramp-coreload-5-foreground = #fba922
 ramp-coreload-6 = ▇
-ramp-coreload-6-font = 2
+ramp-coreload-6-font = 7
 ramp-coreload-6-foreground = #ff5555
 ramp-coreload-7 = █
-ramp-coreload-7-font = 2
+ramp-coreload-7-font = 7
 ramp-coreload-7-foreground = #ff5555
 
 [module/date]
@@ -132,12 +135,12 @@ bar-used-foreground-1 = #aaff77
 bar-used-foreground-2 = #fba922
 bar-used-foreground-3 = #ff5555
 bar-used-indicator = |
-bar-used-indicator-font = 6
+bar-used-indicator-font = 8
 bar-used-indicator-foreground = #ff
 bar-used-fill = ─
-bar-used-fill-font = 6
+bar-used-fill-font = 8
 bar-used-empty = ─
-bar-used-empty-font = 6
+bar-used-empty-font = 8
 bar-used-empty-foreground = #444444
 
 [module/pulseaudio]
@@ -165,7 +168,7 @@ interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
 format-connected-foreground = #43a047
-label-connected = %signal%% %essid% %{T3}%local_ip%%{T-}
+label-connected = %signal%% %essid% %{T0}%local_ip%%{T-}
 label-disconnected = 
 label-disconnected-foreground = #c62828
 
@@ -186,7 +189,7 @@ type = internal/network
 interface = enp3s0
 interval = 3.0
 
-label-connected =    %{T3}%local_ip%%{T-}
+label-connected =    %{T0}%local_ip%%{T-}
 label-connected-foreground = #43a047
 label-disconnected = 
 label-disconnected-foreground = #c62828

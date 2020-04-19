@@ -37,7 +37,8 @@ set $right l
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+#bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec gnome-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -45,11 +46,11 @@ bindsym $mod+Shift+q kill
 # start dmenu (a program launcher)
 #Default
 #bindsym $mod+d exec dmenu_run
-bindsym $mod+d exec --no-startup-id j4-dmenu-desktop --dmenu="rofi -i -dmenu -p 'Run: '" --term="i3-sensible-terminal"
+bindsym $mod+d exec --no-startup-id j4-dmenu-desktop --dmenu="rofi -i -dmenu -p 'Run: '" --term="gnome-terminal"
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+#bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+$left focus left
@@ -200,9 +201,8 @@ bindsym XF86AudioRaiseVolume exec $volumepath/volume -np -i $volumestep -t $stat
 bindsym XF86AudioLowerVolume exec $volumepath/volume -np -d $volumestep -t $statuscmd -u $statussig
 bindsym XF86AudioMute        exec $volumepath/volume -mn -t $statuscmd -u $statussig
 
-bindsym $mod+Control+l exec gnome-screensaver-command -l
-#exec --no-startup-id xautolock -time 3 -locker "gnome-screensaver-command -l"
-#exec --no-startup-id ~/scripts/lightsOn/lightsOn.sh 150
+bindsym $mod+Control+l exec i3lock -i ~/.i3/space.png -t -ef -n
+exec --no-startup-id /home/devon/.cargo/bin/xidlehook --not-when-fullscreen --not-when-audio --timer 300 'i3lock -i ~/.i3/space.png -t -ef -n' '' &
 
 bindsym $mod+Control+r exec i3-input -F 'rename workspace to "%s"' -P 'New Name: '
 
