@@ -177,6 +177,9 @@ export PATH=$PATH:/home/devon/scripts
 export GOPATH=$HOME/development/go
 export PATH=$PATH:$GOPATH/bin
 
+export PATH=$PATH:/home/devon/apps/platform-tools
+export PATH=$PATH:/home/devon/.cargo/bin
+
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 
