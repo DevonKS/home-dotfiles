@@ -2,16 +2,6 @@
 
 sudo dnf install i3 i3status dmenu i3lock xbacklight feh conky polybar rofi -y
 
-#Install j4-dmenu-desktop
-sudo dnf install cmake g++ -y
-mkdir -p ~/development/i3
-cd ~/development/i3
-git clone https://github.com/enkore/j4-dmenu-desktop.git
-cd j4-dmenu-desktop
-cmake .
-make
-sudo make install
-
 # install the fonts
 #NotoSans
 sudo mkdir -p /usr/share/fonts/noto-sans
@@ -34,6 +24,11 @@ sudo mkdir -p /usr/share/fonts/unifont
 sudo cp /home/devon/.i3/fonts/unifont/gnu-unifont/*.ttf /usr/share/fonts/unifont/
 sudo find /usr/share/fonts/unifont -type f -exec chmod 644 -- {} +
 
+#Sauce Code Pro
+sudo mkdir -p /usr/share/fonts/sauce-code-pro
+sudo cp Sauce\ Code\ Pro\ Medium\ Nerd\ Font\ Complete.ttf /usr/share/fonts/sauce-code-pro/
+sudo find /usr/share/fonts/sauce-code-pro -type f -exec chmod 644 -- {} +
+
 #refresh font cache
 fc-cache -v
 
@@ -41,3 +36,8 @@ fc-cache -v
 sudo dnf install libxcb libXScrnSaver pulseaudio-libs -y
 sudo dnf install rust cargo -y
 cargo install xidlehook --bins
+
+#Install rofi theme
+sudo cp /home/devon/.i3/themes/rofi/nord-rofi-theme/nord.rasi /usr/share/rofi/themes/
+sudo chmod 644 /usr/share/rofi/themes/nord.rasi
+

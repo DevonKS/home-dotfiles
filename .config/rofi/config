@@ -1,2 +1,2 @@
-rofi.theme: /usr/share/rofi/themes/Adapta-Nokto.rasi
 rofi.modi: window,run,ssh,drun
+rofi.theme: /usr/share/rofi/themes/nord.rasi
