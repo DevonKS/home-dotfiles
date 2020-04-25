@@ -26,7 +26,7 @@ sudo find /usr/share/fonts/unifont -type f -exec chmod 644 -- {} +
 
 #Sauce Code Pro
 sudo mkdir -p /usr/share/fonts/sauce-code-pro
-sudo cp Sauce\ Code\ Pro\ Medium\ Nerd\ Font\ Complete.ttf /usr/share/fonts/sauce-code-pro/
+sudo cp /home/devon/.i3/fonts/sauce-code-pro/*.ttf /usr/share/fonts/sauce-code-pro/
 sudo find /usr/share/fonts/sauce-code-pro -type f -exec chmod 644 -- {} +
 
 #refresh font cache

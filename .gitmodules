@@ -1,3 +1,9 @@
 [submodule ".emacs.d/lisp/airline-themes"]
 	path = .emacs.d/lisp/airline-themes
 	url = https://github.com/DevonKS/airline-themes.git
+[submodule ".i3/polybar-pulseaudio-control"]
+	path = .i3/polybar-pulseaudio-control
+	url = https://github.com/DevonKS/polybar-pulseaudio-control.git
+[submodule ".i3/themes/rofi/nord-rofi-theme"]
+	path = .i3/themes/rofi/nord-rofi-theme
+	url = https://github.com/Murzchnvok/nord-rofi-theme.git

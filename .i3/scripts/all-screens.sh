@@ -13,13 +13,14 @@ if type "xrandr"; then
     monitors+=( "$m" )
   done
   xrandr --output "${monitors[0]}" --auto
+  MONITOR=${monitors[0]} polybar -c ~/.i3/polybar/jaagr-space/polybar-jaagr-space --reload top &
   for m in ${!monitors[*]}; do
     if [ "$m" -ne 0 ] 
     then
       i=$(($m - 1))
       xrandr --output "${monitors[$m]}" --right-of "${monitors[$i]}"
       # Launch polybar
-      MONITOR=HDMI-0 polybar -c ~/.i3/polybar-jaagr-space --reload top &
+      MONITOR=${monitors[$m]} polybar -c ~/.i3/polybar/jaagr-space/polybar-jaagr-space --reload top &
     fi
   done
 fi
