@@ -192,9 +192,8 @@ bindsym $mod+t exec rofi-theme-selector
 
 bindsym Mod1+Tab workspace back_and_forth
 
-#TODO
-# Shortcut for rofi wifi selector
-# Shortcut for rofi audio output selector
+bindsym $mod+i exec /home/devon/.i3/scripts/rofi-wifi-menu/rofi-wifi-menu.sh
+bindsym $mod+Shift+a exec /home/devon/.i3/scripts/set-default-audio-output.sh
 
 exec --no-startup-id feh --bg-fill ~/.i3/polybar/polybar-nord/peyto-lake.png
 exec_always --no-startup-id ~/.i3/scripts/launch-polybar.sh &
