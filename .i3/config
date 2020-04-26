@@ -179,9 +179,11 @@ bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute        exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
-bindsym $mod+Control+l exec i3lock -i ~/.i3/polybar/jaagr-space/space.png -t -ef -n
-exec --no-startup-id /home/devon/.cargo/bin/xidlehook --not-when-fullscreen --not-when-audio --timer 300 'i3lock -i ~/.i3/polybar/jaagr-space/space.png -t -ef -n' '' &
+bindsym $mod+Control+l exec i3lock -i ~/.i3/polybar/polybar-nord/mountain-nord.jpg -t -ef -n
+exec --no-startup-id /home/devon/.cargo/bin/xidlehook --not-when-fullscreen --not-when-audio --timer 300 'i3lock -i ~/.i3/polybar/polybar-nord/mountain-nord.jpg -t -ef -n' '' &
 
+# When using this the new name must be prefix by the number so the workspace navigation keys still work.
+# e.g. when renaming workspace `1` to `work` the new name should be `1 work`.
 bindsym $mod+Control+r exec i3-input -F 'rename workspace to "%s"' -P 'New Name: '
 
 bindsym $mod+Shift+w exec rofi -show window
@@ -190,8 +192,9 @@ bindsym $mod+t exec rofi-theme-selector
 
 bindsym Mod1+Tab workspace back_and_forth
 
-#Autostart apps
-#exec --no-startup-id nm-applet
+#TODO
+# Shortcut for rofi wifi selector
+# Shortcut for rofi audio output selector
 
-exec --no-startup-id feh --bg-fill ~/.i3/polybar/jaagr-space/space.png
+exec --no-startup-id feh --bg-fill ~/.i3/polybar/polybar-nord/mountain-nord.jpg
 exec_always --no-startup-id ~/.i3/scripts/launch-polybar.sh &

@@ -9,8 +9,8 @@ while pgrep -x polybar >/dev/null; do sleep 1; done
 # Launch polybar
 if type "xrandr"; then
   for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-    MONITOR=$m polybar -c ~/.i3/polybar/jaagr-space/polybar-jaagr-space --reload top &
+    MONITOR=$m polybar -c ~/.i3/polybar/polybar-nord/config --reload main &
   done
 else
-  polybar -c ~/.i3/polybar/jaagr-space/polybar-jaagr-space --reload top &
+   polybar -c ~/.i3/polybar/polybar-nord/config --reload main &
 fi
