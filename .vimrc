@@ -43,7 +43,7 @@ nnoremap <leader>bd :bd<CR>
 nnoremap <leader>bl :ls<CR>
 nnoremap <leader>bn :bn<CR>
 nnoremap <leader>bp :bp<CR>
-nnoremap <leader>bs :w<CR>
+nnoremap <leader>fs :w<CR>
 
 nnoremap <leader>b :b
 nnoremap <leader>vb :vsp<Space><bar><Space>b
