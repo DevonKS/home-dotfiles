@@ -211,8 +211,6 @@ bindsym $mod+p exec firefox -private-window
 
 # TODO
 # Notifications in i3
-# add shortcuts in vim to copy and paste from system clipboard
-# improve tmux config
 
 exec --no-startup-id feh --bg-fill ~/.i3/polybar/polybar-nord/peyto-lake.png
 exec_always --no-startup-id ~/.i3/scripts/launch-polybar.sh &
