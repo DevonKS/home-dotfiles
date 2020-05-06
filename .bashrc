@@ -181,6 +181,8 @@ export PATH=$PATH:/home/devon/apps/platform-tools
 export PATH=$PATH:/home/devon/.cargo/bin
 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias vi='vimx'
+alias vim='vimx'
 
 
 if [ -f /usr/share/fzf/shell/key-bindings.bash ]; then

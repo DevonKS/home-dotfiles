@@ -38,6 +38,9 @@ inoremap jk <Esc>
 nnoremap <leader>e :NERDTree<CR>
 nnoremap <leader>o :edit<Space>
 
+nnoremap <leader>pp "+p<CR>
+vnoremap <leader>yy "+y<CR>
+
 "Buffer Management
 nnoremap <leader>bd :bd<CR>
 nnoremap <leader>bl :ls<CR>
@@ -60,8 +63,8 @@ nnoremap <leader>wc :close<CR>
 nnoremap <leader>wm :only<CR>
 
 "vimrc management
-nnoremap <leader>ve :edit<Space>~/.vimrc<CR>
-nnoremap <leader>vs :source<Space>~/.vimrc<CR>
+nnoremap <leader>ce :edit<Space>~/.vimrc<CR>
+nnoremap <leader>cr :source<Space>~/.vimrc<CR>
 
 "js tools setup
 let g:user_emmet_leader_key='<Tab>'
