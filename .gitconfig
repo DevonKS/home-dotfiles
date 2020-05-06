@@ -1,0 +1,13 @@
+[alias]
+	ll = log --graph --pretty=format:'%C(yellow)%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
+	co = checkout
+	br = branch
+	ci = commit
+	p = push
+	po = push origin
+	ps = push -o ci.skip
+	st = status
+	a = add
+	uns = reset HEAD --
+	rvt = checkout -- 
+	alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
