@@ -7,6 +7,7 @@ include-file = /home/devon/.i3/polybar/polybar-nord/modules/battery
 include-file = /home/devon/.i3/polybar/polybar-nord/modules/cpu
 include-file = /home/devon/.i3/polybar/polybar-nord/modules/date
 include-file = /home/devon/.i3/polybar/polybar-nord/modules/i3
+include-file = /home/devon/.i3/polybar/polybar-nord/modules/i3mirrored
 include-file = /home/devon/.i3/polybar/polybar-nord/modules/memory
 include-file = /home/devon/.i3/polybar/polybar-nord/modules/pulseaudio
 include-file = /home/devon/.i3/polybar/polybar-nord/modules/pulseaudio-control
@@ -39,6 +40,10 @@ tray-maxsize = 16
 
 cursor-click = pointer
 cursor-scroll = ns-resize
+
+[bar/mirrored]
+inherit = bar/main
+modules-left = i3mirrored
 
 [settings]
 screenchange-reload = true
