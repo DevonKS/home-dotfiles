@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo dnf install i3 i3status dmenu i3lock xbacklight feh conky polybar rofi -y
+sudo dnf install i3 i3status dmenu i3lock xbacklight feh conky polybar rofi dunst -y
 
 # install the fonts
 #NotoSans
