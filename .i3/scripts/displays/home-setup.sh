@@ -26,4 +26,4 @@ if type "xrandr"; then
   i3-msg "workspace 2, focus"
 fi
 
-feh --bg-fill '/home/devon/.i3/polybar/polybar-nord/peyto-lake.png' 
+feh --bg-fill '/home/devon/.i3/wallpapers/NordWallpaperPack/daniel-leone-v7daTKlZzaw-unsplash.jpg'
