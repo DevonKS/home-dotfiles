@@ -10,3 +10,6 @@
 [submodule ".i3/scripts/rofi-wifi-menu"]
 	path = .i3/scripts/rofi-wifi-menu
 	url = https://github.com/DevonKS/rofi-wifi-menu.git
+[submodule ".i3/scripts/i3lock-multimonitor"]
+	path = .i3/scripts/i3lock-multimonitor
+	url = https://github.com/ShikherVerma/i3lock-multimonitor.git

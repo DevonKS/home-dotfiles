@@ -41,3 +41,5 @@ cargo install xidlehook --bins
 sudo cp /home/devon/.i3/themes/rofi/nord-rofi-theme/nord.rasi /usr/share/rofi/themes/
 sudo chmod 644 /usr/share/rofi/themes/nord.rasi
 
+sudo cp /home/devon/.i3/themes/rofi/gruvbox-rofi-theme/gruvbox.rasi /usr/share/rofi/themes/
+sudo chmod 644 /usr/share/rofi/themes/gruvbox.rasi
