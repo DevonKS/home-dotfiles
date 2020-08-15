@@ -179,10 +179,11 @@ export PATH=$PATH:$GOPATH/bin
 
 export PATH=$PATH:/home/devon/apps/platform-tools
 export PATH=$PATH:/home/devon/.cargo/bin
+export PATH=$PATH:/home/devon/.local/bin
 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-alias vi='vimx'
-alias vim='vimx'
+alias vi='nvim'
+alias vim='nvim'
 
 
 if [ -f /usr/share/fzf/shell/key-bindings.bash ]; then
