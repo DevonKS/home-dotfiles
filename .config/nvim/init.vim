@@ -132,7 +132,6 @@ set wildmenu
 set wildmode=list:longest,full
 
 "fzf
-set rtp+=/usr/local/opt/fzf
 " AgIn: Start ag in the specified directory
 "
 " e.g.
@@ -177,6 +176,6 @@ command! -bang -nargs=+ Gag call s:git_ag(<bang>0, <f-args>)
 set t_Co=256
 "colorscheme gruvbox
 colorscheme nord
-set guifont=Fira\ Code
+set guifont=FiraCode\ Nerd\ Font
 set encoding=utf-8
 set clipboard+=unnamedplus
