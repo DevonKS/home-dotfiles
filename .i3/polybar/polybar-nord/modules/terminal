@@ -2,6 +2,6 @@
 type = custom/script
 
 click-left = x-terminal-emulator
-exec = echo %{T4}%{T-}
+exec = echo %{T1}%{T-}
 format-foreground = ${colors.terminal}
 format-padding = 1

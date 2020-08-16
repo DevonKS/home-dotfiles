@@ -3,6 +3,6 @@ type = custom/script
 
 click-left = steam&
 click-middle = killall steam&
-exec = echo %{T4}戮%{T-}
+exec = echo %{T1}戮%{T-}
 format-foreground = ${colors.steam}
 format-padding = 1

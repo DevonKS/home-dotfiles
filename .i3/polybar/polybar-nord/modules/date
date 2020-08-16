@@ -6,7 +6,7 @@ time = " %H:%M %d-%m-%y"
 time-alt = " %a, %b %d %H:%M"
 
 format-padding = 1
-format-prefix = %{T3}%{T-}
-format-prefix-foreground = ${colors.blue}
-label = %{T2}%time%%{T-}
-label-foreground = ${colors.blue}
+format-prefix = %{T1}%{T-}
+format-prefix-foreground = ${colors.date-fg}
+label = %{T1}%time%%{T-}
+label-foreground = ${colors.date-fg}

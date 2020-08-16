@@ -3,7 +3,7 @@ type = internal/cpu
 interval = 1
 
 format-padding = 1
-format-prefix = %{T3}%{T-}
-format-prefix-foreground = ${colors.yellow}
+format-prefix = %{T1}%{T-}
+format-prefix-foreground = ${colors.cpu-fg}
 label = " %percentage:2%%"
-label-foreground = ${colors.yellow}
+label-foreground = ${colors.cpu-fg}

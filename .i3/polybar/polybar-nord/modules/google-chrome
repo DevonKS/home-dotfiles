@@ -4,6 +4,6 @@ type = custom/script
 click-left = google-chrome --new-window&
 click-middle = killall chrome&
 click-right = google-chrome --incognito&
-exec = echo %{T4}%{T-}
+exec = echo %{T1}%{T-}
 format-foreground = ${colors.google-chrome}
 format-padding = 1

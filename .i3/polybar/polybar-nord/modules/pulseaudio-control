@@ -7,4 +7,4 @@ exec = /home/devon/.i3/polybar-pulseaudio-control/pulseaudio-control.bash listen
 click-right = exec pavucontrol &
 click-left = /home/devon/.i3/polybar-pulseaudio-control/pulseaudio-control.bash next-sink
 label-padding = 2
-label-foreground = ${colors.blue}
+label-foreground = ${colors.pulse-fg}

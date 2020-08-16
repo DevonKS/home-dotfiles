@@ -2,6 +2,6 @@
 type = custom/script
 
 click-left = code&
-exec = echo %{T4}%{T-}
+exec = echo %{T1}%{T-}
 format-foreground = ${colors.code}
 format-padding = 1

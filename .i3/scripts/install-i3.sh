@@ -29,6 +29,11 @@ sudo mkdir -p /usr/share/fonts/sauce-code-pro
 sudo cp /home/devon/.i3/fonts/sauce-code-pro/*.ttf /usr/share/fonts/sauce-code-pro/
 sudo find /usr/share/fonts/sauce-code-pro -type f -exec chmod 644 -- {} +
 
+#FiraCode Nerd Font
+sudo mkdir -p /usr/share/fonts/fira-code-nerd-font
+sudo cp /home/devon/.i3/fonts/FiraCodeNerdFont/*.ttf /usr/share/fonts/fira-code-nerd-font/
+sudo find /usr/share/fonts/fira-code-nerd-font -type f -exec chmod 644 -- {} +
+
 #refresh font cache
 fc-cache -v
 
