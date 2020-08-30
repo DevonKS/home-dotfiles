@@ -192,7 +192,7 @@ bindsym Control+Down         exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym Control+Left         exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 bindsym $mod+Escape exec --no-startup-id ~/.i3/scripts/i3lock-multimonitor/lock -i ~/.i3/wallpapers/NordWallpaperPack/daniel-leone-v7daTKlZzaw-unsplash.jpg
-exec --no-startup-id /home/devon/.cargo/bin/xidlehook --not-when-fullscreen --not-when-audio --timer 300 '~/.i3/scripts/i3lock-multimonitor/lock -i ~/.i3/wallpapers/NordWallpaperPack/daniel-leone-v7daTKlZzaw-unsplash.jpg' '' &
+exec --no-startup-id xidlehook --not-when-fullscreen --not-when-audio --timer 300 '~/.i3/scripts/i3lock-multimonitor/lock -i ~/.i3/wallpapers/NordWallpaperPack/daniel-leone-v7daTKlZzaw-unsplash.jpg' '' &
 
 bindsym $mod+Shift+Escape exec --no-startup-id ~/.i3/scripts/i3-exit.sh
 
