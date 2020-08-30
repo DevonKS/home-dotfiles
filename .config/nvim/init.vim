@@ -58,8 +58,6 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 let g:ale_linters = {'clojure': ['clj-kondo'], 'javascript': ['eslint']}
 
 set encoding=utf-8
-set autochdir
-
 inoremap jk <Esc>
 
 nnoremap <leader>e :NERDTree<CR>
