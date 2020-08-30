@@ -15,6 +15,7 @@ fi
 
 if type "xrandr"; then
   xrandr --output "DP-1.1" --auto --output "HDMI-0" --auto --primary --right-of "DP-1.1" --output "DP-1.2" --auto --right-of "HDMI-0"
+  xrandr --dpi 96
 
   MONITOR="DP-1.1" polybar -c ~/.i3/polybar/polybar-nord/config main &
   MONITOR="HDMI-0" polybar -c ~/.i3/polybar/polybar-nord/config main &
