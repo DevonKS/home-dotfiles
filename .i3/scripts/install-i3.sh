@@ -1,6 +1,9 @@
 #!/bin/bash
+set -o errexit   # abort on nonzero exitstatus
+set -o nounset   # abort on unbound variable
+set -o pipefail  # don't hide errors within pipes
 
-sudo dnf install i3 i3status dmenu i3lock xbacklight feh conky polybar rofi dunst -y
+sudo pacman -S i3 dmenu feh polybar rofi dunst
 
 # install the fonts
 #NotoSans
@@ -38,9 +41,7 @@ sudo find /usr/share/fonts/fira-code-nerd-font -type f -exec chmod 644 -- {} +
 fc-cache -v
 
 #Install xidlehook for autolocking
-sudo dnf install libxcb libXScrnSaver pulseaudio-libs -y
-sudo dnf install rust cargo -y
-cargo install xidlehook --bins
+pamac build xidlehook
 
 #Install rofi theme
 sudo cp /home/devon/.i3/themes/rofi/nord-rofi-theme/nord.rasi /usr/share/rofi/themes/
