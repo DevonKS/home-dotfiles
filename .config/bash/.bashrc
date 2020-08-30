@@ -12,7 +12,5 @@ alias vi='nvim'
 alias vim='nvim'
 
 
-if [ -f /usr/share/fzf/shell/key-bindings.bash ]; then
-    . /usr/share/fzf/shell/key-bindings.bash
-fi
+[ -f /usr/share/fzf/key-bindings.bash ] && source /usr/share/fzf/key-bindings.bash
 

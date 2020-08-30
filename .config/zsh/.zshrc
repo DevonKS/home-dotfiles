@@ -16,7 +16,5 @@ alias la='ls -A'
 alias l='ls -CF'
 
 
-if [ -f /usr/share/fzf/shell/key-bindings.bash ]; then
-    . /usr/share/fzf/shell/key-bindings.bash
-fi
+[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
 
