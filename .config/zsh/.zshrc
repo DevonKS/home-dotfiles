@@ -24,5 +24,7 @@ alias ll='ls -alhF --color'
 alias la='ls -A --color'
 alias l='ls -CF --color'
 
+export EDITOR=/usr/bin/nvim
+
 [ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
 
