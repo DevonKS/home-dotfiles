@@ -201,6 +201,7 @@ bindsym $mod+Shift+Escape exec --no-startup-id ~/.i3/scripts/i3-exit.sh
 bindsym $mod+Control+r exec --no-startup-id i3-input -F 'rename workspace to "%s"' -P 'New Name: '
 
 bindsym $mod+w exec --no-startup-id rofi -show window
+bindsym $mod+d exec --no-startup-id ~/scripts/dokuwiki/launch-wiki.sh
 
 bindsym $mod+Shift+t exec --no-startup-id rofi-theme-selector
 
@@ -216,3 +217,4 @@ bindsym $mod+Shift+b exec --no-startup-id firefox -private-window
 
 exec --no-startup-id dunst
 exec --no-startup-id ~/.i3/scripts/displays/home-setup.sh
+
