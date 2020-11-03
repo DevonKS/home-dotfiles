@@ -8,6 +8,7 @@ export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:/home/devon/apps/platform-tools
 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias dfs='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias vi='nvim'
 alias vim='nvim'
 
