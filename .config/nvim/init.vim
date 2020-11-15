@@ -34,7 +34,14 @@ Plug 'mattn/emmet-vim'
 Plug 'editorconfig/editorconfig-vim'
 
 "Clojure Tools
+Plug 'luochen1990/rainbow'
+Plug 'guns/vim-sexp'
+Plug 'tpope/vim-sexp-mappings-for-regular-people'
+Plug 'tpope/vim-dispatch'
+Plug 'radenling/vim-dispatch-neovim'
+Plug 'SevereOverfl0w/vim-replant'
 Plug 'tpope/vim-fireplace'
+Plug 'clojure-vim/async-clj-omni'
 Plug 'tpope/vim-surround'
 Plug 'venantius/vim-cljfmt'
 
@@ -42,6 +49,12 @@ call plug#end()
 
 "plug setup
 nnoremap <leader>pi :PlugInstall<CR>
+
+let g:rainbow_active = 1
+let g:rainbow_conf = {
+\  'guifgs': ['#5e81ac', '#a3be8c', '#ebcb8b', '#bf616a', '#b48ead'],
+\  'ctermfgs': ['12', '2', '3', '1', '5']
+\}
 
 " ncm2 autocomplete
 " enable ncm2 for all buffers
@@ -128,6 +141,49 @@ let g:airline_skip_empty_sections = 1
 
 set wildmenu
 set wildmode=list:longest,full
+
+"""Clojure Keyboard Shortcuts
+nmap <Leader>msf <Plug>(sexp_capture_next_element)
+nmap <Leader>msb <Plug>(sexp_capture_prev_element)
+nmap <Leader>mbf <Plug>(sexp_emit_tail_element)
+nmap <Leader>mbb <Plug>(sexp_emit_head_element)
+
+nmap <Leader>mwi <Plug>(sexp_round_head_wrap_list)
+nmap <Leader>mwI <Plug>(sexp_round_tail_wrap_list)
+nmap <Leader>mw[ <Plug>(sexp_square_head_wrap_list)
+nmap <Leader>mw] <Plug>(sexp_square_tail_wrap_list)
+nmap <Leader>mw{ <Plug>(sexp_curly_head_wrap_list)
+nmap <Leader>mw} <Plug>(sexp_curly_tail_wrap_list)
+nmap <Leader>mWi <Plug>(sexp_round_head_wrap_element)
+nmap <Leader>mWI <Plug>(sexp_round_tail_wrap_element)
+nmap <Leader>mW[ <Plug>(sexp_square_head_wrap_element)
+nmap <Leader>mW] <Plug>(sexp_square_tail_wrap_element)
+nmap <Leader>mW{ <Plug>(sexp_curly_head_wrap_element)
+nmap <Leader>mW} <Plug>(sexp_curly_tail_wrap_element)
+
+nmap <Leader>mi <Plug>(sexp_insert_at_list_head)
+nmap <Leader>ma <Plug>(sexp_insert_at_list_tail)
+
+nmap <Leader>mrs <Plug>(sexp_splice_list)
+nmap <Leader>mrf <Plug>(sexp_raise_list)
+nmap <Leader>mre <Plug>(sexp_raise_element)
+
+nmap <Leader>mfh <Plug>(sexp_swap_list_backward)
+nmap <Leader>mfl <Plug>(sexp_swap_list_forward)
+nmap <Leader>meh <Plug>(sexp_swap_element_backward)
+nmap <Leader>mel <Plug>(sexp_swap_element_forward)
+
+nmap <Leader>mlf :<C-U>call replant#ui#refresh()<CR>
+nmap <Leader>mla :<C-U>call replant#ui#refresh_all()<CR>
+
+nmap <Leader>mtb :Eval<Space>(clojure.test/run-tests)<CR>
+nmap <Leader>mta :ReplantTestProject<CR>
+" TODO
+" ReplantApropos
+" ReplantApropos but for the current buffer
+" ReplantFindSymbol (Might need to sort out cider-nrepl and refactor-nrepl deps)
+" clj-refactor
+" vim-fireplace keybindings
 
 "fzf
 " AgIn: Start ag in the specified directory
