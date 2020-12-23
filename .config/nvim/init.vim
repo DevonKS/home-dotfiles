@@ -39,11 +39,12 @@ Plug 'guns/vim-sexp'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
 Plug 'tpope/vim-dispatch'
 Plug 'radenling/vim-dispatch-neovim'
-Plug 'SevereOverfl0w/vim-replant'
+Plug 'SevereOverfl0w/vim-replant', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-fireplace'
 Plug 'clojure-vim/async-clj-omni'
 Plug 'tpope/vim-surround'
 Plug 'venantius/vim-cljfmt'
+Plug 'snoe/clj-refactor.nvim'
 
 call plug#end()
 
@@ -59,6 +60,8 @@ let g:rainbow_conf = {
 " ncm2 autocomplete
 " enable ncm2 for all buffers
 autocmd BufEnter * call ncm2#enable_for_buffer()
+let ncm2#complete_delay = 300
+let g:ncm2#matcher = 'substrfuzzy'
 
 " IMPORTANT: :help Ncm2PopupOpen for more information
 set completeopt=noinsert,menuone,noselect
@@ -173,8 +176,9 @@ nmap <Leader>mfl <Plug>(sexp_swap_list_forward)
 nmap <Leader>meh <Plug>(sexp_swap_element_backward)
 nmap <Leader>mel <Plug>(sexp_swap_element_forward)
 
-nmap <Leader>mlf :<C-U>call replant#ui#refresh()<CR>
-nmap <Leader>mla :<C-U>call replant#ui#refresh_all()<CR>
+nmap <Leader>mlf :Require<CR>
+nmap <Leader>mla :<C-U>call replant#ui#refresh()<CR>
+nmap <Leader>mlaf :<C-U>call replant#ui#refresh_all()<CR>
 
 nmap <Leader>mtb :Eval<Space>(clojure.test/run-tests)<CR>
 nmap <Leader>mta :ReplantTestProject<CR>
