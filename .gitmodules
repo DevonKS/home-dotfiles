@@ -10,3 +10,9 @@
 [submodule ".i3/scripts/i3lock-multimonitor"]
 	path = .i3/scripts/i3lock-multimonitor
 	url = https://github.com/ShikherVerma/i3lock-multimonitor.git
+[submodule "chemacs"]
+	path = chemacs
+	url = https://github.com/plexus/chemacs.git
+[submodule "doom-emacs"]
+	path = doom-emacs
+	url = https://github.com/hlissner/doom-emacs

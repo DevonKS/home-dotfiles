@@ -5,6 +5,9 @@ export GOPATH=$HOME/development/go
 export PATH=$PATH:$GOPATH/bin
 
 export PATH=$PATH:/home/devon/apps/platform-tools
+export PATH=$PATH:/home/devon/doom-emacs/bin
+
+export DOOMDIR=~/.config/doom
 
 # Load Git completion
 zstyle ':completion:*:*:git:*' script ~/.config/zsh/git-completion.bash
