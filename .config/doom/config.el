@@ -53,3 +53,24 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+(after! clojure-mode
+  (add-hook! 'clojure-mode-hook
+    (add-hook 'before-save-hook 'cider-format-buffer)))
+
+(map! :map clojure-mode-map
+      :localleader
+      :n "s f" 'paredit-forward-slurp-sexp
+      :n "s b" 'paredit-backward-slurp-sexp
+      :n "b f" 'paredit-forward-barf-sexp
+      :n "b b" 'paredit-backward-barf-sexp
+
+      :n "w {" 'paredit-wrap-curly
+      :n "w (" 'paredit-wrap-round
+      :n "w [" 'paredit-wrap-square
+      :n "w <" 'paredit-wrap-angled
+
+      :n "f r" 'paredit-raise-sexp
+      :n "f s" 'paredit-splice-sexp
+
+      :n "f t" 'transpose-sexps)
