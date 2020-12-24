@@ -1,0 +1,55 @@
+;; -*- mode: emacs-lisp; lexical-binding:t; coding: utf-8-emacs; -*-
+;; --------------------------------------------------------------------------
+;; Desktop File for Emacs
+;; --------------------------------------------------------------------------
+;; Created Thu Dec 24 08:45:41 2020
+;; Desktop file format version 208
+;; Emacs version 27.1
+
+;; Global section:
+(setq desktop-saved-frameset [frameset 1 (24547 40549 892840 950000) (desktop . "208") "devon@gamebox" nil nil ((((minibuffer . t) (undecorated) (override-redirect) (font . "-SRC-Hack-normal-normal-normal-*-15-*-*-*-m-0-iso10646-1") (font-parameter . "Hack 11") (border-width . 0) (internal-border-width . 0) (right-divider-width . 0) (bottom-divider-width . 0) (vertical-scroll-bars) (horizontal-scroll-bars) (foreground-color . "#ffffff") (background-color . "#263238") (mouse-color . "black") (border-color . "#37474f") (screen-gamma) (line-spacing) (left-fringe . 8) (right-fringe . 8) (no-special-glyphs) (scroll-bar-foreground) (scroll-bar-background) (menu-bar-lines . 0) (tab-bar-lines . 0) (height . 58) (tool-bar-lines . 0) (title) (wait-for-wm . t) (tool-bar-position . top) (inhibit-double-buffering) (icon-type . t) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 16) (scroll-bar-height . 16) (alpha) (no-focus-on-map) (no-accept-focus) (fullscreen) (visibility . t) (skip-taskbar) (z-group) (display-type . color) (background-mode . dark) (cursor-color . "#51afef") (sticky) (environment) (powerline-cache) (frameset--id . "CC8F-841E-7B5C-5A65") (frameset--mini t . t) (modeline . t) (unsplittable) (icon-name) (display . ":1") (explicit-name) (last-focus-update) (width . 104) (left . 2640) (top . 28)) ((min-height . 4) (min-width . 10) (min-height-ignore . 2) (min-width-ignore . 7) (min-height-safe . 1) (min-width-safe . 2) (min-pixel-height . 72) (min-pixel-width . 90) (min-pixel-height-ignore . 36) (min-pixel-width-ignore . 63) (min-pixel-height-safe . 18) (min-pixel-width-safe . 18)) leaf (pixel-width . 956) (pixel-height . 1030) (total-width . 106) (total-height . 57) (normal-height . 1.0) (normal-width . 1.0) (buffer "init.el" (selected . t) (hscroll . 0) (fringes 8 8 nil nil) (margins 3) (scroll-bars nil 0 t nil 0 t nil) (vscroll . 0) (dedicated) (point . 748) (start . 1)) (prev-buffers ("junk.org" 1 1958) ("manjaro-install-notes.org" 1 3972) ("*scratch*" 1 1))))])
+(setq desktop-missing-file-warning nil)
+(setq tags-file-name nil)
+(setq tags-table-list nil)
+(setq search-ring nil)
+(setq regexp-search-ring '("get-in .* \\[" "n" ":nodes" "lljkkk" "get-in ll \\[:nodes" "linked-lists" "jjjkkkkkkk" "recur" " mf" "set-face-a" "size"))
+(setq register-alist '((119 . [100 116 32 105 103 101 116 45 110 101 120 116 106 107 backspace backspace escape 102 32 102 32 108 100 116 32 120 102 32 100 102 93]) (113 . [99 116 32 103 101 116 45 118 97 108 escape 119 119 100 102 32 102 32 100 102 93]) (48 . #("\n(defn junk3\n  []\n  \"Working?\")\n" 0 1 (yank-handler (evil-yank-line-handler nil t) fontified t help-echo cider--help-echo cider-locals nil) 1 2 (yank-handler (evil-yank-line-handler nil t) fontified t help-echo cider--help-echo cider-locals nil face (rainbow-delimiters-depth-1-face)) 2 6 (yank-handler (evil-yank-line-handler nil t) fontified t help-echo cider--help-echo cider-locals nil face font-lock-keyword-face) 6 7 (yank-handler (evil-yank-line-handler nil t) fontified t help-echo cider--help-echo cider-locals nil) 7 12 (yank-handler (evil-yank-line-handler nil t) fontified t help-echo cider--help-echo cider-locals nil face font-lock-function-name-face) 12 13 (yank-handler (evil-yank-line-handler nil t) fontified t help-echo cider--help-echo cider-locals nil) 13 15 (yank-handler (evil-yank-line-handler nil t) fontified t help-echo cider--help-echo cider-locals nil) 15 16 (yank-handler (evil-yank-line-handler nil t) fontified t help-echo cider--help-echo cider-locals nil face (rainbow-delimiters-depth-2-face)) 16 17 (yank-handler (evil-yank-line-handler nil t) fontified t help-echo cider--help-echo cider-locals nil face (rainbow-delimiters-depth-2-face)) 17 20 (yank-handler (evil-yank-line-handler nil t) fontified t help-echo cider--help-echo cider-locals nil) 20 30 (yank-handler (evil-yank-line-handler nil t) fontified t help-echo cider--help-echo cider-locals nil face font-lock-string-face) 30 31 (yank-handler (evil-yank-line-handler nil t) fontified t help-echo cider--help-echo cider-locals nil face (rainbow-delimiters-depth-1-face)) 31 32 (yank-handler (evil-yank-line-handler nil t) fontified t help-echo cider--help-echo cider-locals nil)))))
+(setq file-name-history '("~/development/advent-of-code/advent-of-code-2020/project.clj" "~/development/advent-of-code/advent-of-code-2020/src/advent_of_code_2020/util.clj" "~/development/coding-interview/clojure-coding-interview/src/clojure_coding_interview/linked_lists.clj" "~/development/gaming/skyrim/src/skyrim/core.clj" "~/Documents/migrating-to-new-os-guide.org" "~/Documents/manjaro-install-notes.org"))
+
+;; Buffer section -- buffers listed in same order as in buffer list:
+(desktop-create-buffer 208
+  "/home/devon/.emacs.dOLD/init.el"
+  "init.el"
+  'emacs-lisp-mode
+  '(eldoc-mode undo-tree-mode linum-mode helm-ff-cache-mode helm-mode company-mode flycheck-mode rainbow-delimiters-mode)
+  748
+  '(nil nil)
+  nil
+  nil
+  '((buffer-display-time 24547 40545 832973 336000) (buffer-file-coding-system . utf-8-unix) (overwrite-mode))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/home/devon/Documents/manjaro-install-notes.org"
+  "manjaro-install-notes.org"
+  'org-mode
+  '(undo-tree-mode linum-mode helm-ff-cache-mode helm-mode company-mode flycheck-mode)
+  3972
+  '(3972 nil)
+  nil
+  nil
+  '((buffer-display-time 24547 34407 645563 634000) (buffer-file-coding-system . undecided-unix) (overwrite-mode) (truncate-lines . t))
+  '((mark-ring (3972 1887 1))))
+
+(desktop-create-buffer 208
+  "/home/devon/Documents/junk.org"
+  "junk.org"
+  'org-mode
+  '(undo-tree-mode linum-mode helm-ff-cache-mode helm-mode company-mode flycheck-mode)
+  1958
+  '(1958 nil)
+  nil
+  nil
+  '((buffer-display-time 24547 40535 389820 345000) (buffer-file-coding-system . utf-8-unix) (overwrite-mode) (truncate-lines . t))
+  '((mark-ring (1958 1626 818 818 86 933 491 629 1422 1520 1553 1068 1577))))
+

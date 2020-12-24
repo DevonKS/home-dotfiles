@@ -1,5 +1,5 @@
-[submodule ".emacs.d/lisp/airline-themes"]
-	path = .emacs.d/lisp/airline-themes
+[submodule ".emacs.dOLD/lisp/airline-themes"]
+	path = .emacs.dOLD/lisp/airline-themes
 	url = https://github.com/DevonKS/airline-themes.git
 [submodule ".i3/polybar-pulseaudio-control"]
 	path = .i3/polybar-pulseaudio-control
