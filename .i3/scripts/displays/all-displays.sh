@@ -12,15 +12,19 @@ if type "xrandr"; then
   for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
     monitors+=( "$m" )
   done
-  xrandr --output "${monitors[0]}" --auto
+  xrandr --output "${monitors[0]}" --auto --dpi 96
   MONITOR=${monitors[0]} polybar -c ~/.i3/polybar/polybar-nord/config --reload main &
   for m in ${!monitors[*]}; do
     if [ "$m" -ne 0 ] 
     then
       i=$(($m - 1))
-      xrandr --output "${monitors[$m]}" --right-of "${monitors[$i]}"
+      xrandr --output "${monitors[$m]}" --right-of "${monitors[$i]}" --auto --dpi 96
+      # sleep 1s
       # Launch polybar
-      MONITOR=${monitors[$m]} polybar -c ~/.i3/polybar/polybar-nord/config --reload main &
+      MONITOR="${monitors[$m]}" polybar -c ~/.i3/polybar/polybar-nord/config --reload main &
     fi
   done
+
+  feh --bg-fill '/home/devon/.i3/wallpapers/NordWallpaperPack/daniel-leone-v7daTKlZzaw-unsplash.jpg'
 fi
+

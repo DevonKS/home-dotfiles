@@ -217,4 +217,5 @@ bindsym $mod+Shift+b exec --no-startup-id firefox -private-window
 
 exec --no-startup-id dunst
 exec --no-startup-id ~/.i3/scripts/displays/home-setup.sh
+exec --no-startup-id ~/.i3/scripts/set-home-audio-profile.sh
 
