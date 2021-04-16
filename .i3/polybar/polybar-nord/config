@@ -33,7 +33,7 @@ font-0 = "FiraCode Nerd Font:style=Regular:size=9;2"
 
 modules-left = i3
 modules-center = date
-modules-right = cpu memory temperature pulseaudio pulseaudio-control wlan wired-network battery
+modules-right = cpu memory temperature pulseaudio-control wlan wired-network battery
 
 tray-background = ${colors.tray-bg}
 tray-position = right
