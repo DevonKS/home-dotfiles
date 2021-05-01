@@ -1,0 +1,3 @@
+(load "~/quicklisp/setup.lisp")
+(push "~/development/cl/" ql:*local-project-directories*)
+(push "~/development/gaming/chess/" ql:*local-project-directories*)
