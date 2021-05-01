@@ -88,6 +88,12 @@
 (after! sly
   (map! (:localleader
          :map lisp-mode-map
+         :desc "Compile and Load buffer and goto REPL" "l" (lambda ()
+                                                             (interactive)
+                                                             (progn (sly-compile-and-load-file)
+                                                                    (windmove-down)
+                                        ;(sly-mrepl #'switch-to-buffer) This changed the current buffer to be the repl (Which is different to interactive behaviour). Not sure how to replicate the interactive behaviour.
+                                                                    ))
          (:prefix ("s" . "stickers + slurp")
           :desc "Slurp Forward" "f" #'paredit-forward-slurp-sexp
           :desc "Slurp Backward" "b" #'paredit-backward-slurp-sexp
