@@ -214,6 +214,8 @@ bindsym $mod+m exec --no-startup-id ~/.i3/scripts/displays/select-displays.sh
 bindsym $mod+f exec --no-startup-id nautilus
 bindsym $mod+b exec --no-startup-id firefox
 bindsym $mod+Shift+b exec --no-startup-id firefox -private-window
+bindsym $mod+o exec --no-startup-id ~/.i3/scripts/set-home-audio-profile.sh
+bindsym $mod+Control+z exec --no-startup-id ~/.i3/scripts/displays/only-laptop-display.sh
 
 exec --no-startup-id dunst
 exec --no-startup-id ~/.i3/scripts/displays/home-setup.sh
