@@ -26,8 +26,32 @@ alias vim='nvim'
 alias ll='ls -alhF --color'
 alias la='ls -A --color'
 alias l='ls -CF --color'
+alias sc='source ~/.config/zsh/.zshrc'
+alias ghk='GIT_SSH_COMMAND="ssh -i ~/Documents/github-key/id_rsa"'
 
 export EDITOR=/usr/bin/nvim
+export CLJ_CONFIG=~/.config/clojure
 
-[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
 
+export ZPLUG_HOME=~/.config/.zplug
+source $ZPLUG_HOME/init.zsh
+
+zplug "jeffreytse/zsh-vi-mode"
+
+zplug "spaceship-prompt/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+# Then, source plugins and add commands to $PATH
+zplug load
+
+export ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
+zvm_after_init_commands+=('[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh')
+
+export SPACESHIP_TIME_SHOW=true
