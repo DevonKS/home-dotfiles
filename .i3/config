@@ -218,6 +218,6 @@ bindsym $mod+o exec --no-startup-id ~/.i3/scripts/set-home-audio-profile.sh
 bindsym $mod+Control+z exec --no-startup-id ~/.i3/scripts/displays/only-laptop-display.sh
 
 exec --no-startup-id dunst
-exec --no-startup-id ~/.i3/scripts/displays/home-setup.sh
+exec --no-startup-id ~/.i3/scripts/displays/home2-setup.sh
 exec --no-startup-id ~/.i3/scripts/set-home-audio-profile.sh
 

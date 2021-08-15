@@ -5,6 +5,9 @@ res=$(rofi -p '' -dmenu < ~/.i3/scripts/displays/display-commands)
 if [ "$res" == "home" ]; then
     ~/.i3/scripts/displays/home-setup.sh
 fi
+if [ "$res" == "home2" ]; then
+    ~/.i3/scripts/displays/home2-setup.sh
+fi
 if [ "$res" == "all" ]; then
     ~/.i3/scripts/displays/all-displays.sh
 fi
