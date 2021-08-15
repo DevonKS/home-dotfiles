@@ -86,6 +86,8 @@
 (add-hook! 'lisp-mode-hook #'paredit-mode)
 
 (after! sly
+  (set-lookup-handlers! 'lisp-mode
+    :references #'sly-edit-uses)
   (map! (:localleader
          :map lisp-mode-map
          :desc "Compile and Load buffer and goto REPL" "l" (lambda ()
@@ -112,3 +114,6 @@
           :desc "Raise Form" "r" #'paredit-raise-sexp
           :desc "Splice Form" "s" #'paredit-splice-sexp
           :desc "Transpose Form" "t" #'transpose-sexps))))
+
+(setq org-agenda-files '("~/Documents/agenda"))
+(setq org-log-done 'time)
