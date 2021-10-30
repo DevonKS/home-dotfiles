@@ -55,7 +55,7 @@
 ;; they are implemented.
 
 (add-hook! 'clojure-mode-hook
-  (add-hook 'before-save-hook #'cider-format-buffer))
+  (add-hook 'before-save-hook #'cider-format-buffer nil t))
 
 (map! (:localleader
        :map clojure-mode-map
@@ -81,7 +81,7 @@
   (indent-region (point-min) (point-max) nil))
 
 (add-hook! 'lisp-mode-hook
-  (add-hook 'before-save-hook #'indent-buffer))
+  (add-hook 'before-save-hook #'indent-buffer nil t))
 
 (add-hook! 'lisp-mode-hook #'paredit-mode)
 
