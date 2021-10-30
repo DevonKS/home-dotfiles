@@ -1,2 +1,1 @@
-rofi.modi: window,run,ssh,drun
-rofi.theme: /usr/share/rofi/themes/nord.rasi
+rofi.theme: /home/devon/.config/rofi/themes/onedark.rasi
