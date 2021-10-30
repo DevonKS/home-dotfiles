@@ -24,14 +24,14 @@ if type "xrandr"; then
   done
   echo $monitors
   xrandr --output "${monitors[0]}" --auto
-  MONITOR=${monitors[0]} polybar -c ~/.i3/polybar/polybar-nord/config --reload main &
+  MONITOR=${monitors[0]} polybar -c ~/.i3/polybar/polybar-nord-minimal/config --reload main &
   for m in ${!monitors[*]}; do
     if [ "$m" -ne 0 ] 
     then
       i=$(($m - 1))
       xrandr --output "${monitors[$m]}" --right-of "${monitors[$i]}"
       # Launch polybar
-      MONITOR=${monitors[$m]} polybar -c ~/.i3/polybar/polybar-nord/config --reload main &
+      MONITOR=${monitors[$m]} polybar -c ~/.i3/polybar/polybar-nord-minimal/config --reload main &
     fi
   done
 fi

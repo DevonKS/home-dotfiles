@@ -13,7 +13,7 @@ if type "xrandr"; then
     monitors+=( "$m" )
   done
   xrandr --output "${monitors[0]}" --auto --dpi 96
-  MONITOR=${monitors[0]} polybar -c ~/.i3/polybar/polybar-nord/config --reload main &
+  MONITOR=${monitors[0]} polybar -c ~/.i3/polybar/polybar-nord-minimal/config --reload main &
   for m in ${!monitors[*]}; do
     if [ "$m" -ne 0 ] 
     then
@@ -21,7 +21,7 @@ if type "xrandr"; then
       xrandr --output "${monitors[$m]}" --right-of "${monitors[$i]}" --auto --dpi 96
       # sleep 1s
       # Launch polybar
-      MONITOR="${monitors[$m]}" polybar -c ~/.i3/polybar/polybar-nord/config --reload main &
+      MONITOR="${monitors[$m]}" polybar -c ~/.i3/polybar/polybar-nord-minimal/config --reload main &
     fi
   done
 

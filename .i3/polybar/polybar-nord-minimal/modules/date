@@ -1,0 +1,7 @@
+[module/date]
+type = internal/date
+
+date = "%a, %b %d"
+time = "%H:%M"
+label = %date% %time%
+label-foreground = ${colors.date-fg}

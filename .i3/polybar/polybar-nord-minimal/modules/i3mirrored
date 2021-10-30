@@ -1,0 +1,3 @@
+[module/i3mirrored]
+inherit = module/i3
+pin-workspaces = false

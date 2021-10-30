@@ -175,6 +175,10 @@ bindsym $mod+r mode "resize"
 
   client.background       #2B2C2B
 
+# Gaps
+gaps top 45
+gaps inner 5
+
 # start rofi (a program launcher)
 bindsym $mod+space exec --no-startup-id rofi -show drun -show-icons
 
@@ -184,12 +188,12 @@ bindsym $mod+space exec --no-startup-id rofi -show drun -show-icons
 # bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 
 ## Volume control
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym Control+Up           exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym Control+Down         exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym Control+Left         exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id /home/devon/.i3/polybar-pulseaudio-control/pulseaudio-control.bash --volume-step 5 --volume-max 150 up && /home/devon/.i3/scripts/notify-volume.sh
+bindsym XF86AudioLowerVolume exec --no-startup-id /home/devon/.i3/polybar-pulseaudio-control/pulseaudio-control.bash --volume-step 5 --volume-max 150 down && /home/devon/.i3/scripts/notify-volume.sh
+bindsym XF86AudioMute        exec --no-startup-id /home/devon/.i3/polybar-pulseaudio-control/pulseaudio-control.bash togmute && /home/devon/.i3/scripts/notify-volume.sh
+bindsym Control+Up           exec --no-startup-id /home/devon/.i3/polybar-pulseaudio-control/pulseaudio-control.bash --volume-step 5 --volume-max 150 up && /home/devon/.i3/scripts/notify-volume.sh
+bindsym Control+Down         exec --no-startup-id /home/devon/.i3/polybar-pulseaudio-control/pulseaudio-control.bash --volume-step 5 --volume-max 150 down && /home/devon/.i3/scripts/notify-volume.sh
+bindsym Control+Left         exec --no-startup-id /home/devon/.i3/polybar-pulseaudio-control/pulseaudio-control.bash togmute && /home/devon/.i3/scripts/notify-volume.sh
 
 bindsym $mod+Escape exec --no-startup-id ~/.i3/scripts/i3lock-multimonitor/lock -i ~/.i3/wallpapers/NordWallpaperPack/daniel-leone-v7daTKlZzaw-unsplash.jpg
 exec --no-startup-id xidlehook --not-when-fullscreen --not-when-audio --timer 300 '~/.i3/scripts/i3lock-multimonitor/lock -i ~/.i3/wallpapers/NordWallpaperPack/daniel-leone-v7daTKlZzaw-unsplash.jpg' '' &
@@ -218,6 +222,9 @@ bindsym $mod+o exec --no-startup-id ~/.i3/scripts/set-home-audio-profile.sh
 bindsym $mod+Control+z exec --no-startup-id ~/.i3/scripts/displays/only-laptop-display.sh
 
 exec --no-startup-id dunst
-exec --no-startup-id ~/.i3/scripts/displays/home2-setup.sh
-exec --no-startup-id ~/.i3/scripts/set-home-audio-profile.sh
+exec --no-startup-id ~/.i3/scripts/displays/home-setup.sh
+exec --no-startup-id sleep 5 && ~/.i3/scripts/set-home-audio-profile.sh
 
+# TODO
+# See if we can add something so that clicking on the network icons will show more info like ssid and ip.
+# Add notifications and shortcuts to adjust brightness

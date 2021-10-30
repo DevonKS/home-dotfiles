@@ -1,0 +1,9 @@
+[module/wired-network]
+type = internal/network
+interface = enp3s0
+interval = 3.0
+
+label-connected = " %{T1}%{T-}  "
+label-connected-foreground = ${colors.wired-connected}
+label-disconnected = " %{T1}%{T-}  "
+label-disconnected-foreground = ${colors.wired-disconnected}

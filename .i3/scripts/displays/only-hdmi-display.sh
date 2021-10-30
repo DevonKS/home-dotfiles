@@ -16,4 +16,4 @@ fi
 xrandr --output HDMI-0 --auto
 
 # Launch polybar
-MONITOR=HDMI-0 polybar -c ~/.i3/polybar/polybar-nord/config --reload main &
+MONITOR=HDMI-0 polybar -c ~/.i3/polybar/polybar-nord-minimal/config --reload main &

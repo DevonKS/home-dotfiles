@@ -11,5 +11,5 @@ if type "xrandr"; then
   for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
     xrandr --output $m --auto
   done
-  polybar -c ~/.i3/polybar/polybar-nord/config --reload mirrored &
+  polybar -c ~/.i3/polybar/polybar-nord-minimal/config --reload mirrored &
 fi
