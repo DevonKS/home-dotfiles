@@ -1,5 +1,12 @@
-local cmp = require'cmp'
-local luasnip = require'luasnip'
+local status_ok, cmp = pcall(require, 'cmp')
+if not status_ok then
+  return
+end
+
+local status_ok, luasnip = pcall(require, 'luasnip')
+if not status_ok then
+  return
+end
 
 require("luasnip/loaders/from_vscode").lazy_load()
 
@@ -126,7 +133,10 @@ cmp.setup {
 -- vim.opt.spell = true
 vim.opt.spelllang = { 'en_gb' }
 
-local wk = require('which-key')
+local status_ok, wk = pcall(require, 'which-key')
+if not status_ok then
+  return
+end
 
 wk.register({
   S = {

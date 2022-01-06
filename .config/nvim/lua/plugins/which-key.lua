@@ -1,7 +1,10 @@
 M = {}
 
 M.setup = function()
-  local wk = require('which-key')
+  local status_ok, wk = pcall(require, 'which-key')
+  if not status_ok then
+    return
+  end
 
   wk.register({
     f = {
