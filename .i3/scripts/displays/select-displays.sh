@@ -20,6 +20,9 @@ fi
 if [ "$res" == "only laptop" ]; then
     ~/.i3/scripts/displays/only-laptop-display.sh
 fi
+if [ "$res" == "only display port" ]; then
+    ~/.i3/scripts/displays/only-display-port.sh
+fi
 if [ "$res" == "mirror all" ]; then
     ~/.i3/scripts/displays/mirror-all-displays.sh
 fi

@@ -13,7 +13,15 @@ if type "xrandr"; then
   done
 fi
 
-xrandr --output HDMI-0 --auto
+if type "xrandr"; then
+  xrandr --output HDMI-0 --auto
+  xrandr --dpi 96
 
-# Launch polybar
-MONITOR=HDMI-0 polybar -c ~/.i3/polybar/polybar-nord-minimal/config --reload main &
+  # Launch polybar
+  MONITOR="HDMI-0" polybar -c ~/.i3/polybar/polybar-nord-minimal/config main &
+
+  i3-msg "workspace 1, move workspace to output HDMI-0"
+  i3-msg "workspace 1, focus"
+fi
+
+feh --bg-fill '/home/devon/.i3/wallpapers/NordWallpaperPack/daniel-leone-v7daTKlZzaw-unsplash.jpg'

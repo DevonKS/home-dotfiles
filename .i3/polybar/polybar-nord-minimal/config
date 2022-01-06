@@ -1,4 +1,4 @@
-; NOTE need to add `gaps top 45` for this to work properly. See https://github.com/polybar/polybar/wiki/Known-Issues#override-redirect-in-i3
+; NOTE need to add `gaps top 40` for this to work properly. See https://github.com/polybar/polybar/wiki/Known-Issues#override-redirect-in-i3
 include-file = /home/devon/.i3/polybar/polybar-nord-minimal/colors
 include-file = /home/devon/.i3/polybar/polybar-nord-minimal/modules/i3
 include-file = /home/devon/.i3/polybar/polybar-nord-minimal/modules/i3mirrored

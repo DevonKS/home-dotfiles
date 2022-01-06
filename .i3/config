@@ -164,6 +164,12 @@ bindsym $mod+r mode "resize"
 #        position top
 #}
 
+#bar {
+#  height 35
+#  position top
+#  mode invisible
+#}
+
 #----------------My Stuff---------------------------
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
@@ -178,6 +184,9 @@ bindsym $mod+r mode "resize"
 # Gaps
 gaps top 45
 gaps inner 5
+
+# Window Settings
+for_window [class="Mullvad VPN"] floating disabled
 
 # start rofi (a program launcher)
 bindsym $mod+space exec --no-startup-id rofi -show drun -show-icons
@@ -222,8 +231,9 @@ bindsym $mod+o exec --no-startup-id ~/.i3/scripts/set-home-audio-profile.sh
 bindsym $mod+Control+z exec --no-startup-id ~/.i3/scripts/displays/only-laptop-display.sh
 
 exec --no-startup-id dunst
-exec --no-startup-id ~/.i3/scripts/displays/home-setup.sh
-exec --no-startup-id sleep 5 && ~/.i3/scripts/set-home-audio-profile.sh
+exec --no-startup-id ~/.i3/scripts/displays/only-hdmi-display.sh
+# exec --no-startup-id ~/.i3/scripts/displays/home-setup.sh
+# exec --no-startup-id sleep 5 && ~/.i3/scripts/set-home-audio-profile.sh
 
 # TODO
 # See if we can add something so that clicking on the network icons will show more info like ssid and ip.
