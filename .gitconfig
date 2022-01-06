@@ -11,3 +11,6 @@
 	uns = reset HEAD --
 	rvt = checkout -- 
 	alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
+[user]
+	email = devonsteenberg@hotmail.com
+	name = Devon Steenberg
