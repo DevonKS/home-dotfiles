@@ -5,7 +5,7 @@ export GOPATH=$HOME/development/go
 export PATH=$PATH:$GOPATH/bin
 
 export PATH=$PATH:/home/devon/apps/platform-tools
-export PATH=$PATH:/home/devon/doom-emacs/bin
+export PATH=$PATH:/home/devon/.emacs.d/bin
 
 export DOOMDIR=~/.config/doom
 
@@ -15,10 +15,6 @@ fpath=(~/.config/zsh $fpath)
 
 autoload -Uz compinit && compinit
 
-alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-alias dfs='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-compdef dotfiles=git
-compdef dfs=git
 alias vi='nvim'
 alias vim='nvim'
 
@@ -27,11 +23,9 @@ alias ll='ls -alhF --color'
 alias la='ls -A --color'
 alias l='ls -CF --color'
 alias sc='source ~/.config/zsh/.zshrc'
-alias ghk='GIT_SSH_COMMAND="ssh -i ~/Documents/github-key/id_rsa"'
 
 export EDITOR=/usr/bin/nvim
 export CLJ_CONFIG=~/.config/clojure
-
 
 export ZPLUG_HOME=~/.config/.zplug
 source $ZPLUG_HOME/init.zsh
