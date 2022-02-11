@@ -81,49 +81,56 @@ local function lsp_keymaps(bufnr)
   )
   vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-  vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+  vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
 
-
-  local status_ok, wk = pcall(require, 'which-key')
+  local status_ok, wk = pcall(require, "which-key")
   if not status_ok then
+    vim.api.nvim_echo({ { "Warning: Failed to load which-key", "WarningMsg" } }, true, {})
     return
   end
 
   wk.register({
     c = {
-      name = 'code',
-      d = { '<cmd>lua vim.lsp.buf.definition()<cr>', 'Goto Definition' },
-      D = { '<cmd>Telescope lsp_references<cr>', 'Goto References' },
-      r = { '<cmd>lua vim.lsp.buf.rename()<cr>', 'Rename' },
-      a = { '<cmd>Telescope lsp_code_actions<cr>', 'Code Actions' },
-      p = { '<cmd>lua vim.diagnostic.setloclist()<cr>', 'Problems' },
-      f = { '<cmd>Format<cr>', 'Format' },
+      name = "code",
+      d = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Goto Definition" },
+      D = { "<cmd>Telescope lsp_references<cr>", "Goto References" },
+      r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
+      a = { "<cmd>Telescope lsp_code_actions<cr>", "Code Actions" },
+      p = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Problems" },
+      f = { "<cmd>Format<cr>", "Format" },
       e = {
-        name = 'errors',
-        p = { '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<cr>', 'Previous Error' },
-        n = { '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<cr>', 'Next Error' },
-        s = { '<cmd>lua vim.diagnostic.show_line_diagnostics({ border = "rounded" })<cr>', 'Show Error' },
-        l = { '<cmd>lua vim.diagnostic.setloclist()<cr>', 'List Errors' },
-        g = { '<cmd>Telescope diagnostics<cr>', 'Goto Problem' },
+        name = "errors",
+        p = { '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<cr>', "Previous Error" },
+        n = { '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<cr>', "Next Error" },
+        s = { "<cmd>lua vim.diagnostic.open_float()<cr>", "Show Error" },
+        l = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "List Errors" },
+        g = { "<cmd>Telescope diagnostics<cr>", "Goto Problem" },
       },
       g = {
-        name = 'go',
-        D = { '<cmd>lua vim.lsp.buf.declaration()<cr>', 'Goto Declaration' },
-        d = { '<cmd>lua vim.lsp.buf.definition()<cr>', 'Goto Definition' },
-        i = { '<cmd>lua vim.lsp.buf.implementation()<cr>', 'Goto Implementation' },
-        r = { '<cmd>lua vim.lsp.buf.references()<cr>', 'Goto References' },
+        name = "go",
+        D = { "<cmd>lua vim.lsp.buf.declaration()<cr>", "Goto Declaration" },
+        d = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Goto Definition" },
+        i = { "<cmd>lua vim.lsp.buf.implementation()<cr>", "Goto Implementation" },
+        r = { "<cmd>lua vim.lsp.buf.references()<cr>", "Goto References" },
       },
       h = {
-        name = 'help',
-        k = { '<cmd>lua vim.lsp.buf.hover()<cr>', 'Show Docs' },
-        K = { '<cmd>lua vim.lsp.buf.signature_help()<cr>', 'Show Signature Help' },
+        name = "help",
+        k = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Show Docs" },
+        K = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Show Signature Help" },
       },
     },
   }, { prefix = "<leader>" })
+
+  wk.register({
+    c = {
+      name = "code",
+      r = { "<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>", "Refactor" },
+    },
+  }, { prefix = "<leader>", mode = "v" })
 end
 
 M.on_attach = function(client, bufnr)
-  if client.name == "tsserver" then
+  if client.name == "tsserver" or client.name == "gopls" then
     client.resolved_capabilities.document_formatting = false
   end
   lsp_keymaps(bufnr)
@@ -134,6 +141,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if not status_ok then
+  vim.api.nvim_echo({ { "Warning: Failed to load cmp_nvim_lsp", "WarningMsg" } }, true, {})
   return
 end
 

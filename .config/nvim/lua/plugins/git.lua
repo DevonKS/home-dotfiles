@@ -1,9 +1,10 @@
 local status_ok, gitsigns = pcall(require, "gitsigns")
 if not status_ok then
+  vim.api.nvim_echo({ { "Warning: Failed to load gitsigns", "WarningMsg" } }, true, {})
   return
 end
 
-gitsigns.setup {
+gitsigns.setup({
   signs = {
     add = { hl = "GitSignsAdd", text = "▎", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
     change = { hl = "GitSignsChange", text = "▎", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
@@ -45,29 +46,29 @@ gitsigns.setup {
   yadm = {
     enable = false,
   },
-}
+})
 
-
-local status_ok, wk = pcall(require, 'which-key')
+local status_ok, wk = pcall(require, "which-key")
 if not status_ok then
+  vim.api.nvim_echo({ { "Warning: Failed to load which-key", "WarningMsg" } }, true, {})
   return
 end
 
 wk.register({
   g = {
-    name = 'git',
-    s = { '<cmd>Gitsigns stage_buffer<CR>', 'Stage Buffer'},
-    u = { '<cmd>Gitsigns reset_buffer_index<CR>', 'Reset Buffer Index'},
-    r = { '<cmd>Gitsigns reset_buffer<CR>', 'Reset Buffer'},
-    b = { '<cmd>Git blame<CR>', 'Blame'},
+    name = "git",
+    s = { "<cmd>Gitsigns stage_buffer<CR>", "Stage Buffer" },
+    u = { "<cmd>Gitsigns reset_buffer_index<CR>", "Reset Buffer Index" },
+    r = { "<cmd>Gitsigns reset_buffer<CR>", "Reset Buffer" },
+    b = { "<cmd>Git blame<CR>", "Blame" },
     h = {
-      name = 'hunk',
-      s = { '<cmd>Gitsigns stage_hunk<CR>', 'Stage Hunk'},
-      u = { '<cmd>Gitsigns undo_stage_hunk<CR>', 'Undo Stage Hunk'},
-      r = { '<cmd>Gitsigns reset_hunk<CR>', 'Reset Hunk'},
-      d = { '<cmd>Gitsigns preview_hunk<CR>', 'Preview Hunk'},
-      n = { '<cmd>Gitsigns next_hunk<CR>', 'Next Hunk'},
-      p = { '<cmd>Gitsigns previous_hunk<CR>', 'Previous Hunk'},
-    }
-  }
-}, { prefix = '<leader>' })
+      name = "hunk",
+      s = { "<cmd>Gitsigns stage_hunk<CR>", "Stage Hunk" },
+      u = { "<cmd>Gitsigns undo_stage_hunk<CR>", "Undo Stage Hunk" },
+      r = { "<cmd>Gitsigns reset_hunk<CR>", "Reset Hunk" },
+      d = { "<cmd>Gitsigns preview_hunk<CR>", "Preview Hunk" },
+      n = { "<cmd>Gitsigns next_hunk<CR>", "Next Hunk" },
+      p = { "<cmd>Gitsigns previous_hunk<CR>", "Previous Hunk" },
+    },
+  },
+}, { prefix = "<leader>" })
