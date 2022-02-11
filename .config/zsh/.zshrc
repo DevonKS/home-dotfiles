@@ -1,11 +1,12 @@
 export PATH=$PATH:/home/devon/apps/bin
 export PATH=$PATH:/home/devon/scripts
 
-export GOPATH=$HOME/development/go
-export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:/home/devon/go/bin
 
 export PATH=$PATH:/home/devon/apps/platform-tools
 export PATH=$PATH:/home/devon/.emacs.d/bin
+
+export PATH=$PATH:/home/devon/.cargo/bin
 
 export DOOMDIR=~/.config/doom
 
