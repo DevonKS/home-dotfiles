@@ -17,7 +17,7 @@ fi
 if type "xrandr"; then
   monitors=()
   for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-    if [ "$m" != "DP-0" ]
+    if [ "$m" != "eDP-1-1" ]
     then
       monitors+=( "$m" )
     fi

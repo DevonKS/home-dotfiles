@@ -2,9 +2,9 @@
 
 # Maps PulseAudio sink names to human-readable names
 declare -A SINK_NICKNAMES
-SINK_NICKNAMES["alsa_output.pci-0000_00_1f.3.analog-stereo"]="PC"
+SINK_NICKNAMES["alsa_output.pci-0000_07_00.6.analog-stereo"]="PC"
 SINK_NICKNAMES["alsa_output.pci-0000_01_00.1.hdmi-stereo"]="HDMI"
-SINK_NICKNAMES["alsa_output.pci-0000_01_00.1.hdmi-stereo-extra1"]="HDMI-1"
+SINK_NICKNAMES["alsa_output.pci-0000_07_00.1.hdmi-stereo"]="HDMI-1"
 SINK_NICKNAMES["alsa_output.usb-C-Media_Electronics_Inc._USB_Audio_Device-00.analog-stereo"]="USB-Audio"
 
 firstRun=0

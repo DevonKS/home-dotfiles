@@ -14,13 +14,13 @@ if type "xrandr"; then
 fi
 
 if type "xrandr"; then
-  xrandr --output HDMI-0 --auto
+  xrandr --output HDMI-1-1 --auto
   xrandr --dpi 96
 
   # Launch polybar
-  MONITOR="HDMI-0" polybar -c ~/.i3/polybar/polybar-nord-minimal/config main &
+  MONITOR="HDMI-1-1" polybar -c ~/.i3/polybar/polybar-nord-minimal/config main &
 
-  i3-msg "workspace 1, move workspace to output HDMI-0"
+  i3-msg "workspace 1, move workspace to output HDMI-1-1"
   i3-msg "workspace 1, focus"
 fi
 

@@ -14,16 +14,16 @@ if type "xrandr"; then
 fi
 
 if type "xrandr"; then
-  xrandr --output "DP-1.1" --auto --output "HDMI-0" --auto --primary --right-of "DP-1.1" --output "DP-1.2" --auto --right-of "HDMI-0"
+  xrandr --output "eDP-1-1" --auto --output "HDMI-1-1" --auto --primary --right-of "eDP-1-1" --output "DP-2" --auto --right-of "HDMI-1-1"
   xrandr --dpi 96
 
-  MONITOR="DP-1.1" polybar -c ~/.i3/polybar/polybar-nord-minimal/config main &
-  MONITOR="HDMI-0" polybar -c ~/.i3/polybar/polybar-nord-minimal/config main &
-  MONITOR="DP-1.2" polybar -c ~/.i3/polybar/polybar-nord-minimal/config main &
+  MONITOR="eDP-1-1" polybar -c ~/.i3/polybar/polybar-nord-minimal/config main &
+  MONITOR="HDMI-1-1" polybar -c ~/.i3/polybar/polybar-nord-minimal/config main &
+  MONITOR="DP-2" polybar -c ~/.i3/polybar/polybar-nord-minimal/config main &
 
-  i3-msg "workspace 1, move workspace to output DP-1.1"
-  i3-msg "workspace 2, move workspace to output HDMI-0"
-  i3-msg "workspace 3, move workspace to output DP-1.2"
+  i3-msg "workspace 1, move workspace to output eDP-1-1"
+  i3-msg "workspace 2, move workspace to output HDMI-1-1"
+  i3-msg "workspace 3, move workspace to output DP-2"
   i3-msg "workspace 2, focus"
 fi
 

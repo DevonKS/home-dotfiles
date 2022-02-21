@@ -13,9 +13,9 @@ if type "xrandr"; then
   done
 fi
 
-xrandr --output DP-0 --auto --dpi 96
+xrandr --output eDP-1-1 --auto --dpi 96
 
 # Launch polybar
-MONITOR=DP-0 polybar -c ~/.i3/polybar/polybar-nord-minimal/config --reload main &
+MONITOR=eDP-1-1 polybar -c ~/.i3/polybar/polybar-nord-minimal/config --reload main &
 
 feh --bg-fill '/home/devon/.i3/wallpapers/NordWallpaperPack/daniel-leone-v7daTKlZzaw-unsplash.jpg'
