@@ -182,7 +182,7 @@ bindsym $mod+r mode "resize"
   client.background       #2B2C2B
 
 # Gaps
-gaps top 45
+# gaps top 45
 gaps inner 5
 
 # Window Settings
