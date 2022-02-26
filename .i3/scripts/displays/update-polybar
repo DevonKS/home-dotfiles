@@ -1,8 +1,0 @@
-#!/bin/bash
-
-if [ -z "$1" ] || [ -z "$2" ]
-then
-	echo "Please pass the current polybar and new one. e.g. $0 polybar-nord polybar-nord-minimal"
-else
-	find . -type f -name "*.sh" -exec sed -i "s/$1/$2/g" {} \;
-fi

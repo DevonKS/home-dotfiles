@@ -1,9 +1,0 @@
-[module/memory]
-type = internal/memory
-interval = 1
-
-format-padding = 1
-format-prefix = %{T1}﬙%{T-}
-format-prefix-foreground = ${colors.mem-fg}
-label = " %percentage_used%%"
-label-foreground = ${colors.mem-fg}
