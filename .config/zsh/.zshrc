@@ -1,3 +1,4 @@
+export PATH=$PATH:/home/kali/.emacs.d/bin
 export DOOMDIR=~/.config/doom
 
 # Load Git completion
