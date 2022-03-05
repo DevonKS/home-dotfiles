@@ -1,13 +1,3 @@
-export PATH=$PATH:/home/devon/apps/bin
-export PATH=$PATH:/home/devon/scripts
-
-export PATH=$PATH:/home/devon/go/bin
-
-export PATH=$PATH:/home/devon/apps/platform-tools
-export PATH=$PATH:/home/devon/.emacs.d/bin
-
-export PATH=$PATH:/home/devon/.cargo/bin
-
 export DOOMDIR=~/.config/doom
 
 # Load Git completion
@@ -26,14 +16,11 @@ alias l='ls -CF --color'
 alias sc='source ~/.config/zsh/.zshrc'
 
 export EDITOR=/usr/bin/nvim
-export CLJ_CONFIG=~/.config/clojure
 
 export ZPLUG_HOME=~/.config/.zplug
 source $ZPLUG_HOME/init.zsh
 
 zplug "jeffreytse/zsh-vi-mode"
-
-zplug "spaceship-prompt/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
@@ -49,4 +36,3 @@ zplug load
 export ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 zvm_after_init_commands+=('[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh')
 
-export SPACESHIP_TIME_SHOW=true
