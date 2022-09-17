@@ -117,3 +117,5 @@
 
 (setq org-agenda-files '("~/Documents/agenda"))
 (setq org-log-done 'time)
+
+(setq +tree-sitter-hl-enabled-modes '(rust-mode))
