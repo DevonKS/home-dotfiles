@@ -3,12 +3,15 @@ export PATH=$PATH:/home/devon/scripts
 
 export PATH=$PATH:/home/devon/go/bin
 
-export PATH=$PATH:/home/devon/apps/platform-tools
 export PATH=$PATH:/home/devon/.emacs.d/bin
 
 export PATH=$PATH:/home/devon/.cargo/bin
 
 export DOOMDIR=~/.config/doom
+
+export ANDROID_SDK_ROOT=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
+export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 
 # Load Git completion
 zstyle ':completion:*:*:git:*' script ~/.config/zsh/git-completion.bash
@@ -34,6 +37,12 @@ source $ZPLUG_HOME/init.zsh
 zplug "jeffreytse/zsh-vi-mode"
 
 zplug "spaceship-prompt/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
+
+# zsh users
+zplug "zsh-users/zsh-completions",              defer:0
+zplug "zsh-users/zsh-autosuggestions",          defer:2, on:"zsh-users/zsh-completions"
+zplug "zsh-users/zsh-syntax-highlighting",      defer:3, on:"zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-history-substring-search", defer:3, on:"zsh-users/zsh-syntax-highlighting"
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
