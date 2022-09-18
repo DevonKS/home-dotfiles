@@ -36,7 +36,7 @@ source $ZPLUG_HOME/init.zsh
 
 zplug "jeffreytse/zsh-vi-mode"
 
-zplug "spaceship-prompt/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
+#zplug "spaceship-prompt/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
 
 # zsh users
 zplug "zsh-users/zsh-completions",              defer:0
@@ -58,4 +58,5 @@ zplug load
 export ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 zvm_after_init_commands+=('[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh')
 
-export SPACESHIP_TIME_SHOW=true
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
+eval "$(starship init zsh)"

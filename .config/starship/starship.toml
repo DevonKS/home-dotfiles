@@ -1,0 +1,15 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+[directory]
+truncation_length=5
+truncate_to_repo=false
+truncation_symbol = "…/"
+
+[sudo]
+disabled=false
+
+[time]
+disabled=false
+
+# Make the vim stuff nicer?
