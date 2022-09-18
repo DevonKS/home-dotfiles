@@ -28,6 +28,8 @@ alias la='ls -A --color'
 alias l='ls -CF --color'
 alias sc='source ~/.config/zsh/.zshrc'
 
+alias el='exa -la'
+
 export EDITOR=/usr/bin/nvim
 export CLJ_CONFIG=~/.config/clojure
 
@@ -60,3 +62,4 @@ zvm_after_init_commands+=('[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr
 
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 eval "$(starship init zsh)"
+eval "$(zoxide init --cmd j zsh)"
