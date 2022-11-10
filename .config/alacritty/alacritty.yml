@@ -1,5 +1,7 @@
 import:
   - ~/.config/alacritty/alacritty-theme/themes/nord.yaml # Comes from https://github.com/eendroroy/alacritty-theme
 
+window:
+  decorations: None
 env:
   TERM: xterm-256color
