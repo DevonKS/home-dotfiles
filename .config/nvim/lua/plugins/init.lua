@@ -21,7 +21,6 @@ return packer.startup(function(use)
   -- General Plugins
   use("windwp/nvim-autopairs")
   use("numToStr/Comment.nvim")
-  use("akinsho/bufferline.nvim")
   use("moll/vim-bbye")
   use("nvim-lualine/lualine.nvim")
   use("akinsho/toggleterm.nvim")
@@ -31,6 +30,41 @@ return packer.startup(function(use)
   use("goolord/alpha-nvim")
   use("ThePrimeagen/refactoring.nvim")
   use("folke/lua-dev.nvim")
+  use({
+    "folke/todo-comments.nvim",
+    requires = "nvim-lua/plenary.nvim",
+    config = function()
+      require("todo-comments").setup({
+        highlight = {
+          before = "",
+          keyword = "bg",
+          after = "",
+          pattern = [[(KEYWORDS)]], -- pattern or table of patterns, used for highlightng (vim regex)
+        },
+        search = {
+          pattern = [[\b(KEYWORDS)\b]],
+        },
+      })
+    end,
+  })
+  use({
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+    config = function()
+      require("trouble").setup({
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      })
+    end,
+  })
+  use({
+    "ggandor/leap.nvim",
+    requires = "tpope/vim-repeat",
+    config = function()
+      require("leap").set_default_keymaps()
+    end,
+  })
 
   -- Git
   use("lewis6991/gitsigns.nvim")
@@ -69,6 +103,7 @@ return packer.startup(function(use)
   use("hrsh7th/cmp-nvim-lsp")
   use("hrsh7th/cmp-nvim-lua")
   use("f3fora/cmp-spell")
+  use("hrsh7th/cmp-nvim-lsp-signature-help")
 
   -- Snippets
   -- TODO should I use ultisnips and vim-snippets instead?
@@ -76,9 +111,13 @@ return packer.startup(function(use)
   use("L3MON4D3/LuaSnip")
   use("rafamadriz/friendly-snippets")
 
+  -- Mason (Auto installer)
+  use("williamboman/mason.nvim")
+  use("williamboman/mason-lspconfig.nvim")
+  use("jayp0521/mason-null-ls.nvim")
+
   -- LSP
   use("neovim/nvim-lspconfig")
-  use("williamboman/nvim-lsp-installer")
   use("jose-elias-alvarez/null-ls.nvim")
 
   -- Treesitter
@@ -87,6 +126,7 @@ return packer.startup(function(use)
     run = ":TSUpdate",
   })
   use("p00f/nvim-ts-rainbow")
+  use("nvim-treesitter/nvim-treesitter-textobjects")
 
   -- Testing
   use("vim-test/vim-test")

@@ -58,13 +58,14 @@ M.setup = function()
     },
     t = {
       name = "testing",
-      a = { "<cmd>TestSuit -strategy=neovim<cr>", "Test All" },
-      A = { "<cmd>TestSuit<cr>", "Test All" },
-      i = { "<cmd>TestSuit -- --include-ignored<cr>", "Test All Including Ignored" },
       f = { "<cmd>TestFile -strategy=neovim<cr>", "Test File" },
       F = { "<cmd>TestFile<cr>", "Test File" },
+      s = { "<cmd>TestNearest -strategy=neovim<cr>", "Test Single" },
+      S = { "<cmd>TestNearest<cr>", "Test Single" },
       l = { "<cmd>TestLast -strategy=neovim<cr>", "Test Last" },
       L = { "<cmd>TestLast -strategy=basic<cr>", "Test Last" },
+      a = { "<cmd>TestSuite -strategy=neovim<cr>", "Test All" },
+      A = { "<cmd>TestSuite<cr>", "Test All" },
     },
     [":"] = { "<cmd>Telescope commands<cr>", "Commands" },
   }, { prefix = "<leader>" })

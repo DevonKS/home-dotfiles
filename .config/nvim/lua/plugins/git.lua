@@ -68,7 +68,7 @@ wk.register({
       r = { "<cmd>Gitsigns reset_hunk<CR>", "Reset Hunk" },
       d = { "<cmd>Gitsigns preview_hunk<CR>", "Preview Hunk" },
       n = { "<cmd>Gitsigns next_hunk<CR>", "Next Hunk" },
-      p = { "<cmd>Gitsigns previous_hunk<CR>", "Previous Hunk" },
+      p = { "<cmd>Gitsigns prev_hunk<CR>", "Previous Hunk" },
     },
   },
 }, { prefix = "<leader>" })

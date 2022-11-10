@@ -12,10 +12,10 @@ if not status_ok then
 end
 
 wk.register({
-  ["/"] = { '<cmd>lua require("Comment.api").toggle_current_linewise()<cr>', "toggle comment" },
+  ["/"] = { '<cmd>lua require("Comment.api").toggle.linewise()<cr>', "toggle comment" },
 }, { prefix = "<leader>" })
 wk.register({
-  ["/"] = { '<esc><cmd>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<cr>', "toggle comment" },
+  ["/"] = { '<esc><cmd>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<cr>', "toggle comment" },
 }, { prefix = "<leader>", mode = "v" })
 
 local function map(mode, lhs, rhs)
