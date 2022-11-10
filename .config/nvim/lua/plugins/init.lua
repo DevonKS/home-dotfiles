@@ -31,7 +31,7 @@ return packer.startup(function(use)
   use("ThePrimeagen/refactoring.nvim")
   use("folke/lua-dev.nvim")
   use({
-    "folke/todo-comments.nvim",
+    "DevonKS/todo-comments.nvim", -- FIXME if my PR gets merged then I should use folke's version again
     requires = "nvim-lua/plenary.nvim",
     config = function()
       require("todo-comments").setup({

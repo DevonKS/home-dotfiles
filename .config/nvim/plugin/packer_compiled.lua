@@ -261,10 +261,10 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   ["todo-comments.nvim"] = {
-    config = { "\27LJ\2\n­\1\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\vsearch\1\0\1\fpattern\19\\b(KEYWORDS)\\b\14highlight\1\0\0\1\0\4\nafter\5\vbefore\5\fkeyword\abg\fpattern\15(KEYWORDS)\nsetup\18todo-comments\frequire\0" },
+    config = { "\27LJ\2\n­\1\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\vsearch\1\0\1\fpattern\19\\b(KEYWORDS)\\b\14highlight\1\0\0\1\0\4\fpattern\15(KEYWORDS)\fkeyword\abg\vbefore\5\nafter\5\nsetup\18todo-comments\frequire\0" },
     loaded = true,
     path = "/home/devon/.local/share/nvim/site/pack/packer/start/todo-comments.nvim",
-    url = "https://github.com/folke/todo-comments.nvim"
+    url = "https://github.com/DevonKS/todo-comments.nvim"
   },
   ["toggleterm.nvim"] = {
     loaded = true,
@@ -306,6 +306,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: todo-comments.nvim
+time([[Config for todo-comments.nvim]], true)
+try_loadstring("\27LJ\2\n­\1\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\vsearch\1\0\1\fpattern\19\\b(KEYWORDS)\\b\14highlight\1\0\0\1\0\4\fpattern\15(KEYWORDS)\fkeyword\abg\vbefore\5\nafter\5\nsetup\18todo-comments\frequire\0", "config", "todo-comments.nvim")
+time([[Config for todo-comments.nvim]], false)
 -- Config for: leap.nvim
 time([[Config for leap.nvim]], true)
 try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\24set_default_keymaps\tleap\frequire\0", "config", "leap.nvim")
@@ -314,10 +318,6 @@ time([[Config for leap.nvim]], false)
 time([[Config for which-key.nvim]], true)
 try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\22plugins.which-key\frequire\0", "config", "which-key.nvim")
 time([[Config for which-key.nvim]], false)
--- Config for: todo-comments.nvim
-time([[Config for todo-comments.nvim]], true)
-try_loadstring("\27LJ\2\n­\1\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\vsearch\1\0\1\fpattern\19\\b(KEYWORDS)\\b\14highlight\1\0\0\1\0\4\nafter\5\vbefore\5\fkeyword\abg\fpattern\15(KEYWORDS)\nsetup\18todo-comments\frequire\0", "config", "todo-comments.nvim")
-time([[Config for todo-comments.nvim]], false)
 -- Config for: trouble.nvim
 time([[Config for trouble.nvim]], true)
 try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\ftrouble\frequire\0", "config", "trouble.nvim")
