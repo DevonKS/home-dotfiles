@@ -13,6 +13,10 @@ export ANDROID_SDK_ROOT=$HOME/Android/Sdk
 export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
 export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 
+# This is so that alacritty displays correctly on different resolutions.
+# See https://wiki.archlinux.org/title/Alacritty 4.5
+export WINIT_X11_SCALE_FACTOR=1
+
 # Load Git completion
 zstyle ':completion:*:*:git:*' script ~/.config/zsh/git-completion.bash
 fpath=(~/.config/zsh $fpath)
@@ -29,6 +33,7 @@ alias l='ls -CF --color'
 alias sc='source ~/.config/zsh/.zshrc'
 
 alias el='exa -la'
+alias et='exa -laT'
 
 export EDITOR=/usr/bin/nvim
 export CLJ_CONFIG=~/.config/clojure
