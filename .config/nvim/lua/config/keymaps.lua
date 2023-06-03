@@ -73,7 +73,7 @@ map("n", "<leader>ta", "<cmd>TestSuite -strategy=neovim<cr>", { desc = "Test All
 map("n", "<leader>tA", "<cmd>TestSuite<cr>", { desc = "Test All (Not NeoVim UI)" })
 
 -- LSP
-map("n", "<leader>cd", vim.lsp.buf.definition, { desc = "Goto Definition" })
+map("n", "<leader>cd", vim.lsp.buf.definition, { desc = "Goto Definition", remap = true })
 map("n", "<leader>cD", Util.telescope("lsp_references"), { desc = "Goto References" })
 map("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename" })
 map("n", "<leader>cp", "<cmd>Trouble document_diagnostics<cr>", { desc = "Problems (Trouble)" })
@@ -108,9 +108,9 @@ map("x", "<C-_>", "<Plug>(comment_toggle_linewise_visual)", { desc = "Toggle Com
 -- TODO: diff current file to index in vimdiff has this with <leader>ghd but it's not that nice to use
 -- TODO: diff current file to somewhere in vimdiff
 local gs = require("gitsigns")
-map("n", "<leader>ghn", gs.next_hunk, "Next Hunk")
-map("n", "<leader>ghp", gs.prev_hunk, "Prev Hunk")
-map("n", "<leader>ghd", gs.preview_hunk, "Preview Hunk")
+map("n", "<leader>ghn", gs.next_hunk, { desc = "Next Hunk" })
+map("n", "<leader>ghp", gs.prev_hunk, { desc = "Prev Hunk" })
+map("n", "<leader>ghd", gs.preview_hunk, { desc = "Preview Hunk" })
 
 -- Spelling
 -- TODO: fix spelling

@@ -3,3 +3,4 @@
 -- Add any additional options here
 
 vim.opt.relativenumber = false -- set relative numbered lines
+vim.opt.conceallevel = 0
