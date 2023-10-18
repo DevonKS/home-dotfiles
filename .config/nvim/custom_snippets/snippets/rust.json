@@ -1,0 +1,7 @@
+{
+  "FIXME": {
+    "prefix": "fix",
+    "body": "// FIXME: ${1:message}",
+    "description": "Snippet for a fixme"
+  }
+}

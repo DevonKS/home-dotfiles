@@ -7,8 +7,25 @@ return {
       keys[#keys + 1] = { "<leader>cd", false }
     end,
     opts = {
+      format = {
+        -- NOTE: goimports can sometimes take long that's why this is so high
+        timeout_ms = 5000,
+      },
       servers = {
-        rust_analyzer = {},
+        gopls = {
+          settings = {
+            gopls = {
+              analyses = {
+                fieldalignment = false,
+                -- shadow = true,
+                unusedvariable = true,
+              },
+            },
+          },
+        },
+      },
+      setup = {
+        gopls = function() end,
       },
     },
   },
@@ -16,8 +33,8 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
-        "rust",
+        "terraform",
       },
     },
-  }
+  },
 }
