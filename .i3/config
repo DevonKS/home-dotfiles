@@ -41,7 +41,7 @@ floating_modifier $mod
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
 #bindsym $mod+Return exec --no-startup-id gnome-terminal
-bindsym $mod+Return exec --no-startup-id alacritty
+bindsym $mod+Return exec --no-startup-id WINIT_X11_SCALE_FACTOR=1 alacritty
 
 # kill focused window
 bindsym $mod+q kill
@@ -233,6 +233,13 @@ bindsym $mod+Control+z exec --no-startup-id ~/.i3/scripts/displays/only-laptop-d
 
 exec --no-startup-id dunst
 exec --no-startup-id ~/.i3/scripts/displays/home-setup.sh
+
+### Run gnome settings
+# Restore GNOME's settings
+#exec --no-startup-id gnome-settings-daemon
+#exec --no-startup-id /usr/libexec/gnome-settings-daemon-localeexec
+# Fix a bug in gnome-settings-daemon: http://feeding.cloud.geek.nz/posts/creating-a-modern-tiling-desktop-environment-using-i3/
+#exec --no-startup-id dconf write /org/gnome/settings-daemon/plugins/cursor/active false
 
 # TODO
 # See if we can add something so that clicking on the network icons will show more info like ssid and ip.
