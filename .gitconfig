@@ -11,6 +11,11 @@
 	uns = reset HEAD --
 	rvt = checkout -- 
 	alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
+	prunebranches = "! git for-each-ref --format '%(refname) %(upstream:track)' refs/heads | awk '$2 == \"[gone]\" {sub(\"refs/heads/\", \"\", $1); print $1}' | xargs git branch -D"
+	deletedbranches = "! git for-each-ref --format '%(refname) %(upstream:track)' refs/heads | awk '$2 == \"[gone]\" {sub(\"refs/heads/\", \"\", $1); print $1}'" 
+	f = fetch --tags --prune
+	um = fetch origin main:main
+	ud = fetch origin develop:develop
 [user]
 	email = devonsteenberg@hotmail.com
 	name = Devon Steenberg

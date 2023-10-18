@@ -32,8 +32,8 @@ alias la='ls -A --color'
 alias l='ls -CF --color'
 alias sc='source ~/.config/zsh/.zshrc'
 
-alias el='exa -la'
-alias et='exa -laT'
+alias el='eza -lah'
+alias et='eza -lahT'
 
 export EDITOR=/usr/bin/nvim
 export CLJ_CONFIG=~/.config/clojure
