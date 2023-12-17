@@ -1,5 +1,9 @@
 return {
-  { "numToStr/Comment.nvim" },
+  {
+    "yutkat/confirm-quit.nvim",
+    event = "CmdlineEnter",
+    opts = {},
+  },
   {
     "L3MON4D3/LuaSnip",
     build = (not jit.os:find("Windows"))
@@ -41,5 +45,20 @@ return {
         mode = { "i", "s" },
       },
     },
+  },
+  {
+    "gbprod/yanky.nvim",
+    keys = {
+      -- stylua: ignore
+    {"<leader>y", function() require("telescope").extensions.yank_history.yank_history({ }) end, desc = "Open Yank History"},
+    },
+  },
+  { "echasnovski/mini.splitjoin", version = false },
+  {
+    "nvim-lualine/lualine.nvim",
+    opts = function(_, opts)
+      table.remove(opts.sections.lualine_c, #opts.sections.lualine_c)
+      table.insert(opts.sections.lualine_c, { "filename", path = 1 })
+    end,
   },
 }

@@ -23,6 +23,7 @@ return {
             },
           },
         },
+        clojure_lsp = {},
       },
       setup = {
         gopls = function() end,
@@ -33,6 +34,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
+        "clojure",
         "terraform",
       },
     },
