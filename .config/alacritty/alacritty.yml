@@ -7,6 +7,10 @@ env:
 window:
   decorations: None
 
+key_bindings:
+  - { key: PageUp,  action: ScrollPageUp }
+  - { key: PageDown, action: ScrollPageDown }
+
 font:
   normal:
     family: FiraCode Nerd Font
