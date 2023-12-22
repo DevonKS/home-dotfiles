@@ -1,3 +1,65 @@
 #!/bin/bash
+set -euo pipefail
 
-echo "Hello"
+echo "Setting up dotfiles..."
+
+os=$(uname -s)
+echo "Detected $os operating system"
+
+if [ "$os" = "Linux" ]; then
+	distro=$(cat /etc/os-release | grep '^ID' | cut -d '=' -f 2)
+	echo "Detected $distro linux distro"
+	if [ "$distro" = "arch" ]; then
+		# FIXME: For things like nodejs and npm how do I wanna manage versions? nvm? global solution?
+		sudo pacman -Syu zsh zsh-completions alacritty neovim tmux zoxide eza starship fzf unzip wget go rustup nodejs npm
+
+		rustup default stable
+
+		########################################
+		############## Nerd Font ###############
+		########################################
+		mkdir -p ~/Downloads/tmp
+		cd ~/Downloads/tmp
+		wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/FiraCode.zip
+
+		mkdir -p ~/.local/share/fonts
+		unzip FiraCode.zip -d ~/.local/share/fonts/
+		fc-cache ~/.local/share/fonts
+
+		cd ~
+		rm -r Downloads/tmp
+
+		########################################
+		############## zsh setup ###############
+		########################################
+		chsh -s /usr/bin/zsh
+		if [[ ! -e ~/.zshrc ]]; then
+			echo '[ -f ~/.config/zsh/.zshrc ] && source ~/.config/zsh/.zshrc' >>~/.zshrc
+		fi
+		# Check if zplug is installed
+		if [[ ! -d ~/.config/.zplug ]]; then
+			git clone https://github.com/zplug/zplug ~/.config/.zplug
+		fi
+		# This will prompt to install plugins if needed
+		zsh -c 'source ~/.zshrc'
+
+		########################################
+		############## tmux setup ##############
+		########################################
+		if [[ ! -d ~/.tmux/plugins/tpm ]]; then
+			git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && TMUX_PLUGIN_MANAGER_PATH=~/.tmux/plugins ~/.tmux/plugins/tpm/bin/install_plugins
+		fi
+
+		########################################
+		############# neovim setup #############
+		########################################
+		# TODO:
+		# * Auto install mason stuff
+		nvim --headless '+Lazy! sync' '+qa'
+	fi
+elif [ "$os" = "Darwin" ]; then
+	echo "TODO..."
+else
+	echo "Unknown operating system"
+	exit 1
+fi
