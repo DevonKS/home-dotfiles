@@ -198,12 +198,13 @@ bindsym $mod+space exec --no-startup-id rofi -show drun -show-icons
 # bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 
 ## Volume control
-bindsym XF86AudioRaiseVolume exec --no-startup-id pulseaudio-control --volume-step 5 --volume-max 150 up && /home/devon/.i3/scripts/notify-volume.sh
-bindsym XF86AudioLowerVolume exec --no-startup-id pulseaudio-control --volume-step 5 --volume-max 150 down && /home/devon/.i3/scripts/notify-volume.sh
-bindsym XF86AudioMute        exec --no-startup-id pulseaudio-control togmute && /home/devon/.i3/scripts/notify-volume.sh
-bindsym Control+Up           exec --no-startup-id pulseaudio-control --volume-step 5 --volume-max 150 up && /home/devon/.i3/scripts/notify-volume.sh
-bindsym Control+Down         exec --no-startup-id pulseaudio-control --volume-step 5 --volume-max 150 down && /home/devon/.i3/scripts/notify-volume.sh
-bindsym Control+Left         exec --no-startup-id pulseaudio-control togmute && /home/devon/.i3/scripts/notify-volume.sh
+bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.i3/scripts/volume_brightness.sh volume_up
+bindsym XF86AudioLowerVolume exec --no-startup-id ~/.i3/scripts/volume_brightness.sh volume_down
+bindsym XF86AudioMute exec --no-startup-id ~/.i3/scripts/volume_brightness.sh volume_mute
+bindsym Control+Up exec --no-startup-id ~/.i3/scripts/volume_brightness.sh volume_up
+bindsym Control+Down exec --no-startup-id ~/.i3/scripts/volume_brightness.sh volume_down
+bindsym Control+Left exec --no-startup-id ~/./i3/scripts/volume_brightness.sh volume_mute
+
 
 bindsym $mod+Escape exec --no-startup-id ~/.i3/scripts/i3lock-multimonitor/lock -i ~/.i3/wallpapers/NordWallpaperPack/daniel-leone-v7daTKlZzaw-unsplash.jpg
 exec --no-startup-id xidlehook --not-when-fullscreen --not-when-audio --timer 300 '~/.i3/scripts/i3lock-multimonitor/lock -i ~/.i3/wallpapers/NordWallpaperPack/daniel-leone-v7daTKlZzaw-unsplash.jpg' '' &
