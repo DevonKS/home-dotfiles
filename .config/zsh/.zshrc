@@ -1,11 +1,13 @@
-export PATH=$PATH:/home/devon/apps/bin
-export PATH=$PATH:/home/devon/scripts
-
-export PATH=$PATH:/home/devon/go/bin
-
-export PATH=$PATH:/home/devon/.emacs.d/bin
-
-export PATH=$PATH:/home/devon/.cargo/bin
+path+=(
+  ~/apps/bin
+  ~/scripts
+  ~/go/bin
+  ~/.emacs.d/bin
+  ~/.cargo/bin
+  $ANDROID_SDK_ROOT/emulator
+  $ANDROID_SDK_ROOT/platform-tools
+)
+export PATH
 
 export DOOMDIR=~/.config/doom
 
