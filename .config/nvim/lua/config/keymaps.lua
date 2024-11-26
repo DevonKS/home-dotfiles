@@ -2,7 +2,6 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
-local Util = require("lazyvim.util")
 local wk = require("which-key")
 
 -- FIXME: Do I have to redefine the map function from the default keymaps file or is there a better way to do this?
@@ -23,9 +22,7 @@ map("i", "jk", "<ESC>", { noremap = true, silent = true })
 map("n", "<leader>fs", "<cmd>w<cr>", { desc = "Save File" })
 
 -- Buffers
-map("n", "<leader>bk", function()
-  require("mini.bufremove").delete(0, false)
-end, { desc = "Delete Buffer" })
+map("n", "<leader>bk", "<leader>bd", { desc = "Delete Buffer", remap = true })
 map(
   "n",
   "<leader>bb",
@@ -47,23 +44,24 @@ map("n", "<leader>ws", "<C-W>s", { desc = "Split window below" })
 map("n", "<leader>wv", "<C-W>v", { desc = "Split window right" })
 
 -- Search
-map("n", "<leader>sp", Util.telescope("live_grep"), { desc = "Search Project" })
-map("n", "<leader>si", Util.telescope("treesitter"), { desc = "Search Buffer Symbols" })
+map("n", "<leader>sp", LazyVim.pick("live_grep"), { desc = "Search Project" })
+map("n", "<leader>si", LazyVim.pick("treesitter"), { desc = "Search Buffer Symbols" })
 
 -- Project
-wk.register({ ["<leader>p"] = { name = "+project" } })
-map("n", "<leader>pf", Util.telescope("files"), { desc = "Find File" })
+wk.add({ { "<leader>p", group = "project" } })
+map("n", "<leader>pf", LazyVim.pick("find_files"), { desc = "Find File" })
+map("n", "<leader>pF", LazyVim.pick("git_files"), { desc = "Find git File" })
 map("n", "<leader>pp", function()
   require("trouble").toggle("workspace_diagnostics")
 end, { desc = "Project Problems (Trouble)" })
 map("n", "<leader>ps", "<cmd>wa<cr>", { desc = "Save all" })
--- TODO: open project
+-- -- TODO: open project
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "clojure",
   group = vim.api.nvim_create_augroup("clojure_only_keymap", { clear = true }),
   callback = function(event)
-    wk.register({ ["<leader>m"] = { buffer = event.buf, name = "+Clojure" } })
+    wk.add({ { "<leader>m", buffer = event.buf, group = "Clojure" } })
     map("n", "<leader>mj", function()
       os.execute("tmux split-window -h 'exec clj -M:repl/conjure'")
     end, { buffer = event.buf, desc = "Start nrepl" })
@@ -71,15 +69,15 @@ vim.api.nvim_create_autocmd("FileType", {
     map("n", "<leader>ml", "<cmd>ConjureEvalFile<cr>", { buffer = event.buf, desc = "Eval File" })
     map("n", "<leader>me", "<cmd>ConjureEval<cr>", { buffer = event.buf, desc = "Eval File" })
 
-    wk.register({ ["<leader>ms"] = { buffer = event.buf, name = "+Slurp" } })
+    wk.add({ { "<leader>ms", buffer = event.buf, group = "Slurp" } })
     map("n", "<leader>msf", "<Plug>(sexp_capture_next_element)", { buffer = event.buf, desc = "Slurp Forward" })
     map("n", "<leader>msb", "<Plug>(sexp_capture_prev_element)", { buffer = event.buf, desc = "Slurp Backwards" })
 
-    wk.register({ ["<leader>mb"] = { buffer = event.buf, name = "+Barf" } })
+    wk.add({ { "<leader>mb", buffer = event.buf, group = "Barf" } })
     map("n", "<leader>mbf", "<Plug>(sexp_emit_tail_element)", { buffer = event.buf, desc = "Barf Forward" })
     map("n", "<leader>mbb", "<Plug>(sexp_emit_head_element)", { buffer = event.buf, desc = "Barf Backwards" })
 
-    wk.register({ ["<leader>mw"] = { buffer = event.buf, name = "+Wrap" } })
+    wk.add({ { "<leader>mw", buffer = event.buf, group = "Wrap" } })
     map(
       "n",
       "<leader>mw(",
@@ -117,12 +115,12 @@ vim.api.nvim_create_autocmd("FileType", {
       { buffer = event.buf, desc = "Wrap with {} and edit at end" }
     )
 
-    wk.register({ ["<leader>mf"] = { buffer = event.buf, name = "+Form" } })
+    wk.add({ { "<leader>mf", buffer = event.buf, group = "Form" } })
     map("n", "<leader>mfr", "<Plug>(sexp_raise_element)", { buffer = event.buf, desc = "Raise Element" })
     map("n", "<leader>mfR", "<Plug>(sexp_raise_list)", { buffer = event.buf, desc = "Raise Form" })
     map("n", "<leader>mfs", "<Plug>(sexp_splice_list)", { buffer = event.buf, desc = "Splice Form" })
 
-    wk.register({ ["<leader>mt"] = { buffer = event.buf, name = "+Transpose" } })
+    wk.add({ { "<leader>mt", buffer = event.buf, group = "Transpose" } })
     map(
       "n",
       "<leader>mtf",
@@ -147,12 +145,13 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- Config
 -- TODO: reload config
-wk.register({ ["<leader>n"] = { name = "+neovim" } })
+wk.add({ { "<leader>n", group = "neovim" } })
 map("n", "<leader>nl", "<cmd>luafile %<cr>", { desc = "Load Current Lua File" })
-map("n", "<leader>no", "<cmd>e /Users/devon/.config/nvim/init.lua<cr>", { desc = "Open NeoVim Config" })
+map("n", "<leader>no", "<cmd>e ~/.config/nvim/init.lua<cr>", { desc = "Open NeoVim Config" })
+map("n", "<leader>nw", "<cmd>cd %:h<cr>", { desc = "Set working directory to current file" })
 
 -- Testing
-wk.register({ ["<leader>t"] = { name = "+testing" } })
+wk.add({ { "<leader>t", group = "testing" } })
 map("n", "<leader>tf", "<cmd>TestFile -strategy=neovim<cr>", { desc = "Test File" })
 map("n", "<leader>tF", "<cmd>TestFile<cr>", { desc = "Test File (Not NeoVim UI)" })
 map("n", "<leader>ts", "<cmd>TestNearest -strategy=neovim<cr>", { desc = "Test Single" })
@@ -164,7 +163,8 @@ map("n", "<leader>tA", "<cmd>TestSuite<cr>", { desc = "Test All (Not NeoVim UI)"
 
 -- LSP
 map("n", "<leader>cd", vim.lsp.buf.definition, { desc = "Goto Definition", remap = true })
-map("n", "<leader>cD", Util.telescope("lsp_references"), { desc = "Goto References" })
+map("n", "<leader>cD", LazyVim.pick("lsp_references"), { desc = "Goto References" })
+map("n", "<leader>ci", LazyVim.pick("lsp_implementations"), { desc = "Goto Implementation" })
 map("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename" })
 map("n", "<leader>cp", function()
   require("trouble").toggle("document_diagnostics")
@@ -172,7 +172,7 @@ end, { desc = "Problems (Trouble)" })
 
 map("n", "<leader>cj", require("mini.splitjoin").toggle, { desc = "Split/Join Args" })
 
-wk.register({ ["<leader>ce"] = { name = "+errors" } })
+wk.add({ { "<leader>ce", group = "errors" } })
 map("n", "<leader>cel", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
 map("n", "<leader>cep", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<cr>', { desc = "Previous Error" })
 map("n", "<leader>cen", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<cr>', { desc = "Next Error" })
@@ -181,30 +181,25 @@ map("n", "<leader>cea", function()
 end, { desc = "All Errors (Trouble)" })
 map("n", "<leader>ceg", "<cmd>Telescope diagnostics<cr>", { desc = "Goto Error" })
 
-wk.register({ ["<leader>cg"] = { name = "+goto" } })
+wk.add({ { "<leader>cg", group = "goto" } })
 map("n", "<leader>cgd", vim.lsp.buf.definition, { desc = "Goto Definition" })
 map("n", "<leader>cgD", vim.lsp.buf.declaration, { desc = "Goto Declaration" })
 map("n", "<leader>cgi", vim.lsp.buf.implementation, { desc = "Goto Implementation" })
 map("n", "<leader>cgr", vim.lsp.buf.references, { desc = "Goto References" })
 
-wk.register({ ["<leader>ch"] = { name = "+help" } })
+wk.add({ { "<leader>ch", group = "help" } })
 map("n", "<leader>chk", vim.lsp.buf.hover, { desc = "Show Docs" })
 map("n", "<leader>chK", vim.lsp.buf.signature_help, { desc = "Show Signature Help" })
 
 -- TODO: show available refactors
 
 -- Comment
--- gc
-map("n", "<leader>cc", function()
-  return require("mini.comment").operator() .. "_"
-end, { desc = "Toggle Comment", expr = true, remap = true })
-map("x", "<leader>cc", [[:<c-u>lua MiniComment.operator('visual')<cr>]], { desc = "Toggle Comment", remap = true })
+map("n", "<leader>cc", "gcc", { desc = "Toggle Comment", remap = true })
+map("v", "<leader>cc", "gc", { desc = "Toggle Comment", remap = true })
 
--- FIXME: for some reason these don't seem to remap
-map("n", "<C-/>", function()
-  return require("mini.comment").operator() .. "_"
-end, { desc = "Toggle Comment", expr = true, remap = true })
-map("x", "<C-/>", [[:<c-u>lua MiniComment.operator('visual')<cr>]], { desc = "Toggle Comment", remap = true })
+vim.keymap.del("n", "<c-/>")
+map("n", "<c-/>", "gcc", { desc = "Toggle Comment", remap = true })
+map("v", "<c-/>", "gc", { desc = "Toggle Comment", remap = true })
 
 -- GIT
 -- TODO: blame entire file
@@ -216,22 +211,28 @@ map("n", "<leader>ghp", gs.prev_hunk, { desc = "Prev Hunk" })
 map("n", "<leader>ghd", gs.preview_hunk, { desc = "Preview Hunk" })
 
 -- Spelling
--- TODO: fix spelling
--- TODO: add to dict
--- TODO: next spelling error
--- TODO: previous spelling error
--- TODO: mark as incorrect
--- TODO: enable spell check
--- TODO: disable spell check
+wk.add({ { "<leader>cs", group = "spelling" } })
+map("n", "<leader>csf", "z=", { desc = "Fix Spelling", remap = true })
+map("n", "<leader>csa", "zg", { desc = "Add to Dictionary", remap = true })
+map("n", "<leader>csr", "zw", { desc = "Remove from Dictionary", remap = true })
+map("n", "<leader>csc", "<cmd>runtime spell/cleanadd.vim<cr>", { desc = "Cleanup All Dictionary Files" })
+map("n", "<leader>csn", "]s", { desc = "Next Spelling Error", remap = true })
+map("n", "<leader>csp", "[s", { desc = "Previous Spelling Error", remap = true })
+map("n", "<leader>cse", "<cmd>setlocal spell<cr>", { desc = "Enable Spellchecking" })
+map("n", "<leader>csd", "<cmd>setlocal nospell<cr>", { desc = "Disable Spellchecking" })
+map(
+  "n",
+  "<leader>csC",
+  "<cmd>mkspell! ~/.config/nvim/en.utf-8.add.spl ~/.config/nvim/en.utf-8.add<cr>",
+  { desc = "Compile spellfile" }
+)
 
 -- Help
-wk.register({ ["<leader>h"] = { name = "+help" } })
+wk.add({ { "<leader>h", group = "help" } })
 map("n", "<leader>hm", "<cmd>mes<cr>", { desc = "Messages" })
 
 map("n", "<leader>qq", require("confirm-quit").confirm_quit_all, { desc = "Quit all", remap = true })
 map("n", "<leader>qQ", "<cmd>qa!<cr>", { desc = "Quit all (Don't confirm or save)", remap = true })
 
-require("telescope").load_extension("notify")
-map("n", "<leader>hn", function()
-  require("telescope").extensions.notify.notify()
-end, { desc = "Notify Messages" })
+require("telescope").load_extension("noice")
+map("n", "<leader>hn", "<cmd>Noice telescope<cr>", { desc = "Noice Messages" })

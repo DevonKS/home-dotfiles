@@ -1,6 +1,15 @@
 return {
   -- add nightfox
-  { "EdenEast/nightfox.nvim" },
+  {
+    "EdenEast/nightfox.nvim",
+    opts = {
+      groups = {
+        nordfox = {
+          SpellBad = { fg = "palette.red" },
+        },
+      },
+    },
+  },
 
   -- Configure LazyVim to load gruvbox
   {

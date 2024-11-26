@@ -1,0 +1,5 @@
+.config/nvim/custom_snippets/snippets/go.json
+.config/nvim/custom_snippets/snippets/python.json
+.config/nvim/custom_snippets/snippets/rust.json
+.config/nvim/lua/plugins/lsp.lua
+.config/nvim/en.utf-8.add.spl

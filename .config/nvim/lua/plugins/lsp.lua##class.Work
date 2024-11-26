@@ -1,0 +1,96 @@
+return {
+  {
+    "neovim/nvim-lspconfig",
+    init = function()
+      local keys = require("lazyvim.plugins.lsp.keymaps").get()
+      -- disable the line diagnostics keymap cause I change it in my keymaps
+      keys[#keys + 1] = { "<leader>cd", false }
+      keys[#keys + 1] = { "<leader>cc", mode = { "n", "v" }, false }
+    end,
+    opts = {
+      format = {
+        -- NOTE: goimports can sometimes take long that's why this is so high
+        timeout_ms = 5000,
+      },
+      inlay_hints = { enabled = false },
+      servers = {
+        gopls = {
+          settings = {
+            gopls = {
+              ["local"] = "git.montoux.net",
+              buildFlags = { "--tags=jobs" },
+              analyses = {
+                fieldalignment = false,
+                -- shadow = true,
+                unusedvariable = true,
+              },
+            },
+          },
+        },
+        clojure_lsp = {},
+      },
+      setup = {
+        gopls = function() end,
+      },
+    },
+  },
+  {
+    "stevearc/conform.nvim",
+    opts = {
+      formatters = {
+        goimports = {
+          prepend_args = { "-local", "git.montoux.net" },
+        },
+        mdformat = {
+          prepend_args = { "--wrap", "80" },
+        },
+      },
+      formatters_by_ft = {
+        python = { "black" },
+        go = { "goimports" },
+        markdown = { "mdformat" },
+      },
+    },
+  },
+  {
+    "mfussenegger/nvim-lint",
+    opts = {
+      linters = {
+        golangcilint = {
+          args = {
+            "run",
+            "-c",
+            "~/.config/golangci/golangci.yml",
+            function()
+              return vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":h")
+            end,
+          },
+        },
+      },
+      linters_by_ft = {
+        go = { "golangcilint" },
+        markdown = { "markdownlint" },
+      },
+    },
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = {
+        "clojure",
+      },
+    },
+  },
+  {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    opts = {
+      ensure_installed = { "black", "mdformat" },
+    },
+  },
+  {
+    "hrsh7th/nvim-cmp",
+    opts = {
+      preselect = require("cmp").PreselectMode.None,
+    },
+  },
+}
