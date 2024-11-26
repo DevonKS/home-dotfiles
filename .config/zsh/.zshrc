@@ -1,3 +1,5 @@
+export ANDROID_SDK_ROOT=$HOME/Android/Sdk
+
 path+=(
   ~/apps/bin
   ~/scripts
@@ -10,10 +12,6 @@ path+=(
 export PATH
 
 export DOOMDIR=~/.config/doom
-
-export ANDROID_SDK_ROOT=$HOME/Android/Sdk
-export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
-export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 
 # This is so that alacritty displays correctly on different resolutions.
 # See https://wiki.archlinux.org/title/Alacritty 4.5
